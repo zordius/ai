@@ -194,6 +194,20 @@ Per-user-secret tools get a `setup-<name>.sh` that's idempotent, fetches
 secrets via a vault CLI (e.g. `op read`), writes to the user's home — not
 the project tree. The project tracks the *recipe*, not the credentials.
 
+### Scoped secret storage (minimize a secret's blast radius)
+Load a per-user secret in *only* the tool that needs it, not the harness's
+shared environment. A secret placed in a globally-injected `env` block reaches
+**every** subprocess the agent spawns — including the shell it runs commands in
+— so it leaks into arbitrary command and tool output. Instead keep it in a
+dedicated, gitignored, read-denied file loaded only by its consumer: the tool's
+launcher (**e.g.** `node --env-file=<file>`) or the script that reads it
+in-process. Name the file for what it is, **not** `.env` — `.env` is the magnet
+for accidental reads (grep, file-watchers, the agent's own read tool), and a
+read-deny rule often doesn't cover every read path (a `grep`/`find` still
+surfaces it). Committed config carries no literal secret — only an
+env-var-with-default or a file reference. And rotate any secret that ever
+entered the agent's context (pasted, echoed, or printed).
+
 ### Pipe-wrapper for allowlist-blocked compounds
 When a workflow genuinely needs a pipe but the harness blocks pipes for
 safety, write a tiny allowlisted wrapper script that encloses the pipe

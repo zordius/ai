@@ -81,6 +81,16 @@ Their summary describes what they intended, not necessarily what they did.
 After a code-changing subagent, check actual file state before reporting
 the work as done.
 
+### Verify the real resolved value, not a proxy
+Check the actual resolved state, not a stand-in that's *usually* equal to it.
+Proxies that quietly drift: an **inherited/ambient context** (verify from a
+clean baseline — the session you're in may still carry the old value), a
+**description of the state** (a config comment or doc claiming a setting is
+active is not the setting being active — read the live value), and **"a"
+matching thing** rather than *the* one on the real resolution path (**e.g.** a
+dependency present *somewhere* vs. present in the exact interpreter/binary that
+will load it). A proxy passing is not the contract passing.
+
 ### One target per comment / report
 Multi-location findings: split into one comment per location, each with a
 "will post here →" link. A single comment listing five places becomes a
@@ -244,6 +254,15 @@ Before posting to a shared system (Jira comment, Slack message, PR review),
 run a fixed safety sequence: assignee-only guard, dedup check, dry-run
 preview, user confirmation, post, audit log. The same sequence becomes
 trustworthy through repetition.
+
+### Mirror means dependencies + verification, not copied artifacts
+Replicating a setup from another machine or context is not "copy the config
+files." The surface artifacts load, but the setup only *works* if its
+dependency closure is present too — the tools, settings, and prerequisites the
+artifacts assume. Diff the dependencies, not just the files; install/enable
+what's missing; then verify behavior, not file contents. Ported artifacts also
+carry their origin's assumptions (**e.g.** comments describing history or paths
+that are false in the new context) — fact-check before adopting verbatim.
 
 ---
 

@@ -266,6 +266,46 @@ that are false in the new context) — fact-check before adopting verbatim.
 
 ---
 
+## 6. Source vs compiled (the agent system as a compiler target)
+
+Treat the durable methodology — the protocols, playbooks, and rules an agent is
+built from — as **source code**, and the agent itself as a **compiled artifact**.
+A newer/better model is a **better compiler**: it recompiles the *same* source
+into a better agent. Four rules fall out of that framing.
+
+### Match the source's architecture tier to the task
+Source comes in tiers. A **low-arch** method (linear, few branches — call it a
+*playbook*) compiles into a simple agent or command. A **high-arch** method
+(modular, many interacting parts — a *protocol*) needs real up-front design or
+the compiled agent bloats and gets hard to maintain. Match the tier to the
+task: don't over-engineer a linear task into a protocol, don't cram a modular
+task into a playbook. The source tier predicts the compiled form — low →
+command / simple agent; high → structured agent + skills.
+
+### Durable lessons land in the source, not the compiled artifact
+An improvement written **only** into the compiled agent is erased the next time
+that agent is regenerated from source. So a durable lesson belongs in the source
+(the protocol/playbook it generalizes); only a fix specific to one artifact goes
+in that artifact. **e.g.** an "extract a lesson into a rule" flow should route a
+methodology lesson to its source doc, not bake it into an agent file.
+
+### Source is not a runtime link target
+Keep the recompile/audit *source* separate from what the *running* system loads.
+Source can be large — it's read whole only when regenerating — but it must not be
+what runtime imports. Point a genuine runtime need at a small, focused
+**reference** file; cite source for provenance with a **plain pointer**, never an
+import syntax that pulls the whole file into context.
+
+### Layer the source by purpose, not topic
+Organize the system's docs/config into **purpose layers** — source (methodology
+to compile from) · rationale/design (the *why*) · governance (rules applied when
+maintaining the system) · reference (domain how-tos used during the work) ·
+human docs — classified by what each is *for*, not by its subject. Two deciding
+questions resolve most placements: is it used *doing the work* or *maintaining
+the system*? Is it *applied as a live rule* or *read as rationale*?
+
+---
+
 ## How to use this doc
 
 This isn't a workspace template — it's a *checklist* for designing one.
@@ -281,6 +321,9 @@ When setting up a new AI-augmented project, walk this doc top to bottom:
 4. Apply the MCP tiering test (Section 4) when bringing in a new MCP.
 5. Reach for the method patterns (Section 5) when you find yourself
    re-deriving the same workflow shape.
+6. Treat your methodology as source and the agent as its compiled output
+   (Section 6) — put durable lessons in source, keep source off the runtime
+   path, and layer by purpose.
 
 The discipline is the spine. Everything else is operational glue that
 should look different in every project, but think similarly.

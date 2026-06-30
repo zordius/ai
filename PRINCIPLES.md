@@ -325,6 +325,22 @@ generated files). The evidence-matching is heuristic (**e.g.** a test name
 matching the requirement, an explicit marker comment, a touched function whose
 docs match) — best-effort; flag the unsure. An empty change is never a pass.
 
+### A review's shape follows the relationship it checks
+A review verifies that a relationship between artifacts holds — and the
+relationship's *type* dictates what "holds" means, so name it first and the checks
+fall out. Two artifacts can relate as **peers that should agree** (same kind, same
+level — **e.g.** a product spec and its technical design): check **parity** (do
+they agree? surface conflicts) plus each one's **completeness** against its
+expected structure — the "Two-axis review of an artifact set" shape. Or as a
+**spec and its realization** across an abstraction gap (one must satisfy the other
+— **e.g.** requirements vs the code): check **bidirectional coverage** (every
+intent realized, every realization intended) — the "Bidirectional spec↔
+implementation coverage" shape, where authority is asymmetric so an unmapped
+realization is scope-creep, not a peer conflict. Applying the wrong shape misfires
+— a spec-vs-code gap is not a "missing section"; peer divergence is not
+"scope-creep". Other relationships (sequence, containment) generate their checks
+the same way.
+
 ### Coverage-gap analysis against intent axes
 To find what a system is missing, don't brainstorm features — first name the
 system's **intent axes** (the handful of purposes it exists to serve — **e.g.**

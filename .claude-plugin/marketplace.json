@@ -1,0 +1,15 @@
+{
+  "name": "zordius-ai",
+  "description": "zordius's personal AI-augmented engineering methodology, distributed as a Claude Code plugin. Reference-to-copy, not a dependency-to-install.",
+  "owner": {
+    "name": "zordius",
+    "url": "https://github.com/zordius"
+  },
+  "plugins": [
+    {
+      "name": "zordius-ai",
+      "source": ".",
+      "description": "zordius's personal AI-augmented engineering methodology, compiled into Claude Code primitives."
+    }
+  ]
+}

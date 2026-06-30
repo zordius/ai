@@ -1,0 +1,17 @@
+{
+  "name": "zordius-ai",
+  "version": "0.1.0",
+  "description": "zordius's personal AI-augmented engineering methodology, compiled into Claude Code primitives from PRINCIPLES.md. Reference-to-copy, not a dependency-to-install.",
+  "author": {
+    "name": "zordius",
+    "url": "https://github.com/zordius"
+  },
+  "homepage": "https://github.com/zordius/ai",
+  "repository": "https://github.com/zordius/ai",
+  "keywords": [
+    "methodology",
+    "claude-code",
+    "ai-augmented-engineering",
+    "principles"
+  ]
+}

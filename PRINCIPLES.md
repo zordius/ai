@@ -118,6 +118,18 @@ that opened it. The source's value is usually its **pointers** — links to the
 authoritative doc/ticket where the real answer lives — not its assertions. (For
 conflicting claims, apply Fact discipline: surface both, don't force a consensus.)
 
+### Don't punt the homework onto the consumer
+A deliverable you hand off — test steps, a report, a review comment, a handoff —
+must be **self-sufficient for whoever consumes it**. Resolve every input it needs
+from the upstream sources yourself (the ticket, a linked thread, a paired change)
+rather than emitting "ask the owner for an eligible account" or "find the X" —
+that pushes your homework onto the reader. If an input genuinely isn't
+discoverable, **say so and name the sources you checked**; never silently default
+or offload. And never hand over a value the consumer can't act on (**e.g.** a
+session token they have no way to reproduce) — surface the reusable form instead.
+Ground each resolved value in the evidence you found, not in a category label
+(see "Verify the real resolved value, not a proxy").
+
 ### One target per comment / report
 Multi-location findings: split into one comment per location, each with a
 "will post here →" link. A single comment listing five places becomes a

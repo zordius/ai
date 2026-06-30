@@ -229,6 +229,16 @@ Before doing exhaustive code search for a feature, confirm the project's
 lifecycle stage. Pre-implementation work (planning, design, ticket triage)
 rarely needs the codebase searched. Skip the sweep, save the context.
 
+### Broad-then-narrow search under a rate limit
+When the search backend is rate-limited (**e.g.** a hosted code-search API capped
+at ~30 queries/minute), don't fan out exhaustively. Start with one **broad** query
+across the whole space, read the results to identify the **few** targets that
+actually matter (**e.g.** the two or three repositories with the most hits or the
+most on-topic names), then spend your remaining calls **deep-diving only those**.
+Targeted-after-triage beats broad-everywhere — it spends the scarce calls where
+signal already showed up — and degrades gracefully (back off and retry) when the
+limit is hit anyway.
+
 ### Three-tier knowledge base
 - **`knowledge/`** — domain concepts and feature specs (multi-source,
   confidence-tracked, never silently downgrade)

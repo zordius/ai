@@ -313,6 +313,18 @@ scope claim? When two disagree, **name both sides and never silently reconcile**
 quietly pick one). Completeness asks *"is anything missing?"*; consistency asks
 *"do the pieces that exist agree?"*.
 
+### Bidirectional spec↔implementation coverage
+When a change is supposed to realize a spec, reconcile the two in **both
+directions** — they catch opposite defects. **Forward (spec → change)**: every
+requirement must map to a concrete reference in the change (code, or better, a
+test); classify each *covered* / *partial* (related code, no test) / *not
+covered*. **Reverse (change → spec)**: every significant hunk must map to a
+requirement — one that doesn't is a **scope-creep candidate**, never silently
+accepted. Exclude noise from the reverse pass (formatting, dependency bumps,
+generated files). The evidence-matching is heuristic (**e.g.** a test name
+matching the requirement, an explicit marker comment, a touched function whose
+docs match) — best-effort; flag the unsure. An empty change is never a pass.
+
 ### Coverage-gap analysis against intent axes
 To find what a system is missing, don't brainstorm features — first name the
 system's **intent axes** (the handful of purposes it exists to serve — **e.g.**

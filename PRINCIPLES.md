@@ -371,6 +371,18 @@ that agent is regenerated from source. So a durable lesson belongs in the source
 in that artifact. **e.g.** an "extract a lesson into a rule" flow should route a
 methodology lesson to its source doc, not bake it into an agent file.
 
+### A lesson earns its source slot only if its absence would bite
+Before adding a distilled lesson to the source, run a **counterfactual-absence
+test**: with the rest of the corpus in place, imagine the lesson gone and ask what
+would actually break. If nothing does — an existing entry already covers it — it's
+redundant; drop it. If only *part* breaks, lift that part and have it reference the
+entry covering the rest instead of restating it (**e.g.** a low-trust-source rule
+keeps its quarantine clause but defers conflict-handling to the fact-grounding
+rule). This is the write-time complement to auditing the set for internal
+contradiction: catching near-duplicates at entry stops the corpus bloating into
+reworded twins that later drift and conflict. A gate worth its slot passes its own
+test.
+
 ### Source is not a runtime link target
 Keep the recompile/audit *source* separate from what the *running* system loads.
 Source can be large — it's read whole only when regenerating — but it must not be

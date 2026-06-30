@@ -91,6 +91,19 @@ matching thing** rather than *the* one on the real resolution path (**e.g.** a
 dependency present *somewhere* vs. present in the exact interpreter/binary that
 will load it). A proxy passing is not the contract passing.
 
+### Ephemeral-source discipline
+Some sources are signal, not canon — noisier and less authoritative than code, a
+tracker, or formal docs (**e.g.** a team chat platform). Quarantine the whole
+class as a **non-authoritative tier**: never persist its content to your knowledge
+base and never let it raise a fact's confidence — an attribution (author + link)
+does *not* make it citable. Surface every item with its **author, date, and
+permalink**, and filter before reporting: weight by **authority** (the owner/lead
+in the relevant channel outranks drive-by chatter) and **recency** (stale signal
+is worse than none), preferring a resolved thread's conclusion over the question
+that opened it. The source's value is usually its **pointers** — links to the
+authoritative doc/ticket where the real answer lives — not its assertions. (For
+conflicting claims, apply Fact discipline: surface both, don't force a consensus.)
+
 ### One target per comment / report
 Multi-location findings: split into one comment per location, each with a
 "will post here →" link. A single comment listing five places becomes a

@@ -244,6 +244,19 @@ multi-step refactor), discover what already exists (comments, branches,
 PRs, prior session traces). Pick up where prior work left off; don't
 re-derive.
 
+### Two-example rule for precedent
+One prior instance is an anecdote, not a pattern — it could itself be a
+mistake or a one-off. Before treating a change shape as the established way
+to do something, require **≥2 recent examples of the same shape from the
+owning group**. Examples from *outside* that group are **mechanism-only**:
+they prove the thing is possible, not that it's the group's accepted
+convention — cite them as context, never as canon. Enforce a **recency
+window** (**e.g.** ≤6 months): older instances are historical background and
+don't count toward the bar, since conventions drift. Fewer than two
+in-group examples ⇒ treat the change as **novel** — expect higher effort,
+wider coordination, and possibly a process change, rather than copying a
+lone example as if it were settled practice.
+
 ### Citation contract for fact-making agents
 Verifier-style agents must end every factual claim with `[src: …]` or
 `[TBC: …]`. The contract is preloaded into the agent via its always-loaded

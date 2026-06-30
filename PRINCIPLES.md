@@ -323,6 +323,17 @@ the build candidates**, ranked by value-over-effort. This grounds every proposal
 in a stated purpose (so it can't be a solution looking for a problem) and surfaces
 redundancy — two components on the same axis — at the same time.
 
+### Turn each gap into a routed, answerable question
+Finding gaps is only half the job (a completeness pass — see "Two-axis review of
+an artifact set" — surfaces them); resolving them efficiently is the other half.
+Convert each gap into a **specific, answerable question** — "what do cancel-reason
+IDs 10/11/13 mean?", "is there a feature flag for X?" (searchable, decidable) —
+never a vague one ("how does it work?", "is it good?"), which burns search effort
+for no closure. Then **route each question to the source most likely to hold the
+answer** (constants / flags / enums → the code; design decisions / specs → the
+docs), and batch by source so independent lookups run in parallel. A gap phrased
+as a sharp question is half-answered; phrased vaguely, it's a fishing trip.
+
 ### Citation contract for fact-making agents
 Verifier-style agents must end every factual claim with `[src: …]` or
 `[TBC: …]`. The contract is preloaded into the agent via its always-loaded

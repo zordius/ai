@@ -257,6 +257,19 @@ in-group examples ⇒ treat the change as **novel** — expect higher effort,
 wider coordination, and possibly a process change, rather than copying a
 lone example as if it were settled practice.
 
+### Two-axis review of an artifact set
+Reviewing a set of related artifacts (**e.g.** a feature's PRD / design doc /
+mockups / ticket) splits into two distinct axes that catch different defects —
+run both. **Completeness**: compare each artifact against its *expected
+structure* — a checklist of the sections it should contain — not a gut sense of
+"done"; flag missing sections, stray `TBD`s, and unanswered standard questions
+(edge / error / empty states, all code paths, copy). **Consistency**:
+cross-artifact parity — do the artifacts agree on every decision, value, and
+scope claim? When two disagree, **name both sides and never silently reconcile**
+(Fact discipline applied across a document set — surface the conflict, don't
+quietly pick one). Completeness asks *"is anything missing?"*; consistency asks
+*"do the pieces that exist agree?"*.
+
 ### Citation contract for fact-making agents
 Verifier-style agents must end every factual claim with `[src: …]` or
 `[TBC: …]`. The contract is preloaded into the agent via its always-loaded

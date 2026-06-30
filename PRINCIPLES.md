@@ -257,6 +257,23 @@ surfaces it). Committed config carries no literal secret — only an
 env-var-with-default or a file reference. And rotate any secret that ever
 entered the agent's context (pasted, echoed, or printed).
 
+### Structural isolation in a shared namespace
+When many principals share one namespace (**e.g.** a multi-user workspace, a
+shared bucket, a common table), isolate each one's data with a **per-principal key
+that is structurally unique and exact-matched** — embed the principal's identity
+into the key (**e.g.** their email in a sentinel title) so the key *itself* is the
+isolation control. Do **not** rely on the platform's own "owned-by-me" /
+"created-by-me" scoping filter — it can silently fail to hold (**e.g.** a search
+backend that ignores the creator filter), so it's a proxy, not the contract (see
+"Verify the real resolved value, not a proxy"). Resolve the principal's identity
+from an **authoritative source** (the authenticated user), never a guess; if you
+can't establish it, **hard-stop** rather than fall back to a shared/generic key.
+Treat **ambiguity as a hard-stop**: a per-principal key must resolve to exactly
+one hit — multiple matches mean something is wrong, so stop and surface, never
+auto-pick. And because a shared resource is concurrently mutable, make **minimal,
+targeted edits (never replace-the-whole-thing) and read back to verify** the write
+landed.
+
 ### Stage gate before exhaustive code sweep
 Before doing exhaustive code search for a feature, confirm the project's
 lifecycle stage. Pre-implementation work (planning, design, ticket triage)

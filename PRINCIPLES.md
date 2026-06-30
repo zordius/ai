@@ -245,12 +245,6 @@ surfaces it). Committed config carries no literal secret — only an
 env-var-with-default or a file reference. And rotate any secret that ever
 entered the agent's context (pasted, echoed, or printed).
 
-### Pipe-wrapper for allowlist-blocked compounds
-When a workflow genuinely needs a pipe but the harness blocks pipes for
-safety, write a tiny allowlisted wrapper script that encloses the pipe
-internally. The harness sees one approved command; the pipe runs *inside*
-that command.
-
 ### Stage gate before exhaustive code sweep
 Before doing exhaustive code search for a feature, confirm the project's
 lifecycle stage. Pre-implementation work (planning, design, ticket triage)

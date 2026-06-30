@@ -270,6 +270,16 @@ scope claim? When two disagree, **name both sides and never silently reconcile**
 quietly pick one). Completeness asks *"is anything missing?"*; consistency asks
 *"do the pieces that exist agree?"*.
 
+### Coverage-gap analysis against intent axes
+To find what a system is missing, don't brainstorm features — first name the
+system's **intent axes** (the handful of purposes it exists to serve — **e.g.**
+for an automation system: knowledge accumulation, quality gates, self-improvement,
+pattern extraction). Map every existing component onto those axes in a coverage
+matrix and grade each axis none / partial / full. The **weakly-covered axes are
+the build candidates**, ranked by value-over-effort. This grounds every proposal
+in a stated purpose (so it can't be a solution looking for a problem) and surfaces
+redundancy — two components on the same axis — at the same time.
+
 ### Citation contract for fact-making agents
 Verifier-style agents must end every factual claim with `[src: …]` or
 `[TBC: …]`. The contract is preloaded into the agent via its always-loaded

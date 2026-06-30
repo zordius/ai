@@ -100,7 +100,10 @@ clean baseline — the session you're in may still carry the old value), a
 active is not the setting being active — read the live value), and **"a"
 matching thing** rather than *the* one on the real resolution path (**e.g.** a
 dependency present *somewhere* vs. present in the exact interpreter/binary that
-will load it). A proxy passing is not the contract passing.
+will load it), and a **lagging status field** (a workflow/tracker state updated
+by hand trails reality — verify the actual artifact: **e.g.** tier work off
+whether the pull request is truly *merged*, not off a ticket still showing
+"In Review"). A proxy passing is not the contract passing.
 
 ### Ephemeral-source discipline
 Some sources are signal, not canon — noisier and less authoritative than code, a

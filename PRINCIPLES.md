@@ -238,6 +238,18 @@ rarely needs the codebase searched. Skip the sweep, save the context.
 Each tier has its own merge and write discipline. Don't conflate them —
 the lifecycle and citation rules differ.
 
+### Tests as verified knowledge
+A topic's test suite is its highest-confidence documentation, because CI re-proves
+it on every commit. Mine three things: **test names** (the `describe`/`it`/`test`
+blocks) are behavior specs — what the thing is *supposed* to do; **assertions**
+(`expect`/`assert`/`XCTAssert`/…) are facts a machine verifies continuously, not
+prose someone wrote once and may have let rot; **edge-case tests** (names with
+"boundary", "error", "invalid", "empty") reveal the failure modes plain docs tend
+to omit. Mock/fixture data shows the real contract shapes (**e.g.** the actual API
+request/response a caller must satisfy), often more accurate than the spec. Tag
+knowledge sourced this way as test-verified with the date, so its provenance —
+CI-proven, not asserted — stays visible.
+
 ### Resume detection
 Before starting work on something stateful (a long-running ticket, a
 multi-step refactor), discover what already exists (comments, branches,

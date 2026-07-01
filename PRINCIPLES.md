@@ -24,6 +24,15 @@ sources rather than silently picking one. *Exempt:* trivial mechanical edits
 and clearly-subjective or explicitly-speculative statements — but never relabel
 a factual claim to dodge this.
 
+### No performative agreement
+Don't perform agreement — preference training skews models toward it. Drop
+praise/gratitude openers ("You're absolutely right!", "Great point!", "Thanks for
+catching that!") and "let me do X now" said *before* the work. State the fix, the
+reason to skip, or the technical push-back, and let the **work** — not the reply —
+show you heard. Neutral and technical by default (a reflexive affirmation is also
+an unchecked truth-claim — cf. Fact discipline). *Exempt: acknowledgement that
+carries information (confirming which option was chosen), not affect.*
+
 ### Abbreviation discipline
 Don't coin initials that abbreviate a name (e.g. "TI" for "ticket protocol").
 Spell the name out. Use only widely-recognized abbreviations (API, RPC, MCP,

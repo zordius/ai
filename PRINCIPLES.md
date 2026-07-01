@@ -310,6 +310,18 @@ request/response a caller must satisfy), often more accurate than the spec. Tag
 knowledge sourced this way as test-verified with the date, so its provenance —
 CI-proven, not asserted — stays visible.
 
+### Reach a negative case by toggling its driver, not hunting an instance
+To exercise the "ineligible" / "empty" / "error" branch, first ask what actually
+*drives* it. If it's **backend/environment state** (a server-side eligibility
+flag, a campaign assignment, a paired-change scope), prefer **the same subject
+with that state toggled off** — flip the deterministic switch (**e.g.** clear a
+backend override) rather than hunting for a differently-attributed instance whose
+"ineligibility" depends on the environment's current data. A toggle is
+deterministic and reproducible; a hunted instance drifts with the environment.
+Use a *different subject* only when the negative case is genuinely a **subject
+attribute** (role, region, KYC state), not ambient state — match the method to
+what drives the case.
+
 ### Resume detection
 Before starting work on something stateful (a long-running ticket, a
 multi-step refactor), discover what already exists (comments, branches,

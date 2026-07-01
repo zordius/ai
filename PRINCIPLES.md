@@ -20,7 +20,9 @@ always-loaded operational doc (e.g. `CLAUDE.md`).
 ### Fact discipline
 Never present memory or inference as established fact. Ground a claim in a
 primary source, or mark it (`[TBC]`, "likely", "appears"). Surface conflicting
-sources rather than silently picking one. *Exempt:* trivial mechanical edits
+sources rather than silently picking one. A **"done" / "it works" claim — and any
+code-fact you cite or build on** (a path, symbol, flag, API param, config key) —
+is itself a fact claim: verify it before asserting, never assume. *Exempt:* trivial mechanical edits
 and clearly-subjective or explicitly-speculative statements — but never relabel
 a factual claim to dodge this.
 

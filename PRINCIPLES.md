@@ -157,7 +157,9 @@ single ambiguous notification.
 
 ### Clickable links in deliverables
 References (Slack threads, docs, PRs, files) render as markdown links, not
-bare text, in drafted comments and reports.
+bare text, in drafted comments and reports. This applies to **user-facing output
+only** — a subagent's structured return to its caller is a **data contract**,
+formatted for that consumer, not for a human reader.
 
 ---
 

@@ -33,6 +33,15 @@ show you heard. Neutral and technical by default (a reflexive affirmation is als
 an unchecked truth-claim — cf. Fact discipline). *Exempt: acknowledgement that
 carries information (confirming which option was chosen), not affect.*
 
+### Scope discipline — do what was asked, then stop
+Do what was asked, then stop — models tend to over-deliver. Surface adjacent
+problems or improvements you notice; **don't silently act on them**: no
+unrequested refactors, no features the task doesn't need (YAGNI), no widening the
+change for a tangent. When a fix implies a ripple (the same bug elsewhere), flag
+the scope and let the user choose before expanding. *Exempt: a trivially-coupled
+change the asked-for one is incomplete without (an import for code you just
+added).*
+
 ### Abbreviation discipline
 Don't coin initials that abbreviate a name (e.g. "TI" for "ticket protocol").
 Spell the name out. Use only widely-recognized abbreviations (API, RPC, MCP,

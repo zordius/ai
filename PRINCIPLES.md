@@ -316,6 +316,20 @@ multi-step refactor), discover what already exists (comments, branches,
 PRs, prior session traces). Pick up where prior work left off; don't
 re-derive.
 
+### Reconstruct the session's task stack before you recap or hand off
+Long sessions accumulate a tree of goals and the sub-problems spawned while
+working them (a detour can spawn its own detour). Before summarizing, handing
+off, or resuming, **reconstruct that tree from the conversation already in
+context** — walk the transcript start to finish and, for each task, capture what
+it is, its parent (what you were working on when it appeared), the relation
+(found-while / to-resolve / blocked-by / follow-up), and a status (done / active
+/ open / blocked). The product is the parent→child stack that makes the **open
+loops you pushed and never popped** visible at a glance. This is *in-context*
+reconstruction — distinct from discovering prior *external* state (see "Resume
+detection"): the source is the conversation you already have, no tools. Ground
+every node in something actually said, and mark an inferred status rather than
+asserting it (Fact discipline).
+
 ### Two-example rule for precedent
 One prior instance is an anecdote, not a pattern — it could itself be a
 mistake or a one-off. Before treating a change shape as the established way

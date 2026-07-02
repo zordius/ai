@@ -296,6 +296,17 @@ auto-pick. And because a shared resource is concurrently mutable, make **minimal
 targeted edits (never replace-the-whole-thing) and read back to verify** the write
 landed.
 
+### Self-locating, least-privilege tooling
+A tool that operates on a repo or resource should **locate its target from its
+own position**, not a hardcoded path — a hardcoded path rots the moment the layout
+moves, whereas a script that resolves relative to itself (**e.g.** repo root = the
+parent of the dir holding the script) always finds the right target, including the
+very copy it was loaded from. And **separate read-locate from write-authority**:
+locating or reading needs no write permission, so guard only the mutating path
+(commit / push / delete — target writable, correct remote); gating a read behind
+that write-check over-restricts and wrongly blocks legitimate read-only use. Give
+each caller exactly the authority its action needs — no more.
+
 ### Stage gate before exhaustive code sweep
 Before doing exhaustive code search for a feature, confirm the project's
 lifecycle stage. Pre-implementation work (planning, design, ticket triage)

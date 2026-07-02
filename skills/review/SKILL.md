@@ -37,6 +37,8 @@ Run **both** — they catch different defects:
 - **Reverse (change → spec)** — every significant hunk maps to a requirement; one
   that doesn't is a **scope-creep candidate**. Exclude noise (formatting, dep
   bumps, generated files). An empty change is never a pass.
+- Evidence-matching is heuristic (a test name matching the requirement, a marker
+  comment, a touched function whose docs match) — best-effort; flag the unsure.
 
 ## Output
 Findings grounded in the artifacts (cite where each lives); surface every conflict

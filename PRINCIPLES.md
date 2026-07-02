@@ -484,6 +484,26 @@ that agent is regenerated from source. So a durable lesson belongs in the source
 in that artifact. **e.g.** an "extract a lesson into a rule" flow should route a
 methodology lesson to its source doc, not bake it into an agent file.
 
+### Three-band decompile: separate portable method from bindings and wiring
+When extracting the reusable method out of a compiled artifact (an agent, skill,
+command, config) to lift into source, sort its content into three bands and keep
+only the first:
+- **Band A — portable method**: the environment- and service-agnostic
+  problem-solving logic that survives moving to another org (**e.g.** "every
+  requirement maps to a change reference; an unmapped change is scope-creep").
+  This is the source-worthy part.
+- **Band B — service ports**: bindings to specific services (**e.g.** a ticket
+  tracker, a VCS host, a chat platform, an MCP). Adapters, not method — injected
+  per environment at compile time.
+- **Band C — harness/workspace wiring**: paths, allowlist shapes, temp-dir
+  conventions, protocol step numbers, the orchestration of specific named
+  components. Regenerated per workspace.
+Only **Band A** goes to source; generalize its concrete B/C touchpoints to
+"**e.g.**". A method that looks *entangled* usually isn't — its Band-A core
+abstracts cleanly once you name the B/C it was fused with and lift only the core.
+This is the decompile half of source-vs-compiled: Band A is the source; B and C
+are what a compile re-supplies for a given environment.
+
 ### A lesson earns its source slot only if its absence would bite
 Before adding a distilled lesson to the source, run a **counterfactual-absence
 test**: with the rest of the corpus in place, imagine the lesson gone and ask what

@@ -42,6 +42,10 @@ not itself be a subagent).
 - **sourced+conformant** — core method maps to a named source entry.
 - **sourced-but-divergent** — maps but extends/diverges (name entry + divergence).
 - **orphaned** — real portable method, no source entry (state it in one sentence).
+- **borderline** — has some portable method but the counterfactual-absence gate is
+  genuinely ambiguous (e.g. the method is obvious once stated, or it mostly rhymes
+  an existing entry without adding new content); flag for human judgment, don't
+  auto-skip or auto-lift.
 - **pure-glue** — negligible portable method (mostly Band B/C orchestration);
   excluded from the denominator.
 

@@ -319,6 +319,14 @@ phase** distinct. Don't proceed to apply or mutate after surfacing without an
 explicit user confirmation. The results being available is not permission to act
 on them.
 
+### Pre-flight read before mutating a configured system
+Before creating or modifying any artifact in a configured system (**e.g.** an
+agent, a skill, a rules document, a settings file), read two things first: the
+system's **knowledge baseline** (how the system works) and its **governing
+rules** (what to enforce). Both are required — the knowledge baseline alone
+misses the project's conventions; the rules alone miss the mechanics. Treat this
+read as mandatory, not optional background.
+
 ### Broad-then-narrow search under a rate limit
 When the search backend is rate-limited (**e.g.** a hosted code-search API capped
 at ~30 queries/minute), don't fan out exhaustively. Start with one **broad** query

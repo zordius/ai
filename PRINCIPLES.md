@@ -483,6 +483,16 @@ generated files). The evidence-matching is heuristic (**e.g.** a test name
 matching the requirement, an explicit marker comment, a touched function whose
 docs match) — best-effort; flag the unsure. An empty change is never a pass.
 
+### Branch repair actions on verdict type, not a generic template
+After a diagnostic pass, choose the repair action based on the **type** of
+finding, not a one-size template. Different verdict types have qualitatively
+different consequences: a "blocked by policy" finding has no fix to propose; an
+"allowed" finding has nothing to repair; a "needs narrowing" finding calls for a
+targeted change. Applying the wrong repair to a verdict type produces a worse
+outcome than no repair — **e.g.** proposing an allow-entry for a policy block is
+a security regression. Name the verdict type first; the repair action follows
+from it. (See also: "A review's shape follows the relationship it checks.")
+
 ### A review's shape follows the relationship it checks
 A review verifies that a relationship between artifacts holds — and the
 relationship's *type* dictates what "holds" means, so name it first and the checks

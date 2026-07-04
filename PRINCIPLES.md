@@ -330,6 +330,14 @@ rules** (what to enforce). Both are required — the knowledge baseline alone
 misses the project's conventions; the rules alone miss the mechanics. Treat this
 read as mandatory, not optional background.
 
+### Ripple check on registry-listed components
+When a named component (an agent, a skill, a command, a server, a script — any
+artifact tracked in an index or registry) is added, renamed, or removed, treat
+the component change as incomplete until every holder of that registration is
+updated. The component being changed is not the same as the component's
+references being current. Enumerate the holders from a known consistency rule
+set; don't rely on memory.
+
 ### Advisory role boundary for analysis agents
 An agent whose job is to analyse and advise must not execute mutations directly
 — its output is structured suggestions, not actions. The caller decides whether

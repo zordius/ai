@@ -164,6 +164,14 @@ bare text, in drafted comments and reports. This applies to **user-facing output
 only** — a subagent's structured return to its caller is a **data contract**,
 formatted for that consumer, not for a human reader.
 
+### Fail-closed bias: gate on the allow path, not the deny path
+Design permission and capability grants to **default to restricted** — put the
+safety gate inside the allow path so anything unproven defers to the more
+cautious outcome. Don't start broad and then blocklist exceptions; start narrow
+and widen only with explicit justification. When proposing a fix or grant,
+present options narrowest-first: the most targeted change that achieves the
+goal ranks above a broader one that also achieves it.
+
 ### Recurrence despite guidance signals enforcement, not more prose
 When the same mistake or violation recurs despite an existing written rule,
 prose has reached its reliability ceiling — the rule was seen and ignored, or

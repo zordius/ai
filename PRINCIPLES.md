@@ -22,9 +22,12 @@ Never present memory or inference as established fact. Ground a claim in a
 primary source, or mark it (`[TBC]`, "likely", "appears"). Surface conflicting
 sources rather than silently picking one. A **"done" / "it works" claim — and any
 code-fact you cite or build on** (a path, symbol, flag, API param, config key) —
-is itself a fact claim: verify it before asserting, never assume. *Exempt:* trivial mechanical edits
-and clearly-subjective or explicitly-speculative statements — but never relabel
-a factual claim to dodge this.
+is itself a fact claim: verify it before asserting, never assume. **This extends
+to mechanics assertions in any artifact you review** — when an automation asserts
+how a tool or system behaves, cross-check it against the authoritative source and
+flag contradictions rather than treating the assertion as authoritative. *Exempt:*
+trivial mechanical edits and clearly-subjective or explicitly-speculative
+statements — but never relabel a factual claim to dodge this.
 
 ### No performative agreement
 Don't perform agreement — preference training skews models toward it. Drop

@@ -484,6 +484,13 @@ the build candidates**, ranked by value-over-effort. This grounds every proposal
 in a stated purpose (so it can't be a solution looking for a problem) and surfaces
 redundancy — two components on the same axis — at the same time.
 
+### Frame each gap as a buildable opportunity
+Finding a coverage gap is only the diagnosis; the actionable output is a
+**framed opportunity** — not just "gap in X" but "solving X removes this pain
+point and serves this purpose." For each gap, state: what pain it causes, why
+filling it is worth the effort, and what kind of solution fits. This converts a
+gap list into a prioritizable backlog rather than an open-ended observation.
+
 ### Turn each gap into a routed, answerable question
 Finding gaps is only half the job (a completeness pass — see "Two-axis review of
 an artifact set" — surfaces them); resolving them efficiently is the other half.

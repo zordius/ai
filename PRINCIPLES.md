@@ -164,6 +164,15 @@ bare text, in drafted comments and reports. This applies to **user-facing output
 only** — a subagent's structured return to its caller is a **data contract**,
 formatted for that consumer, not for a human reader.
 
+### Recurrence despite guidance signals enforcement, not more prose
+When the same mistake or violation recurs despite an existing written rule,
+prose has reached its reliability ceiling — the rule was seen and ignored, or
+never reached. Writing another prose rule layers more of the same. The fix is
+to move up one level: automated enforcement (a hook, a guard, a pre-commit
+check) that makes the violation impossible or requires explicit override. Prose
+rules belong when the behaviour requires judgement; enforcement belongs when the
+behaviour is binary and has already proven prose-resistant.
+
 ---
 
 ## 2. Naming taxonomy

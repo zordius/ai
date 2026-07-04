@@ -327,6 +327,14 @@ rules** (what to enforce). Both are required — the knowledge baseline alone
 misses the project's conventions; the rules alone miss the mechanics. Treat this
 read as mandatory, not optional background.
 
+### Tiered resolution: cache first, then docs, then search
+When looking up information, resolve in ascending cost order: **cached KB →
+official documentation → open web search**. Move to the next tier only when
+the current one genuinely can't answer — the cache doesn't exist, doesn't cover
+the topic, or the user explicitly asks for the latest. Each tier has a trigger
+condition; don't skip tiers to save steps (a cache hit is faster and
+higher-confidence than a web search).
+
 ### Broad-then-narrow search under a rate limit
 When the search backend is rate-limited (**e.g.** a hosted code-search API capped
 at ~30 queries/minute), don't fan out exhaustively. Start with one **broad** query

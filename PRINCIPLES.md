@@ -327,6 +327,14 @@ rules** (what to enforce). Both are required — the knowledge baseline alone
 misses the project's conventions; the rules alone miss the mechanics. Treat this
 read as mandatory, not optional background.
 
+### Advisory role boundary for analysis agents
+An agent whose job is to analyse and advise must not execute mutations directly
+— its output is structured suggestions, not actions. The caller decides whether
+and how to apply them. This separation keeps the analysis honest (the adviser
+isn't committed to its own recommendation), gives the caller a review gate
+before anything changes, and makes the adviser reusable across callers with
+different execution contexts.
+
 ### Tiered resolution: cache first, then docs, then search
 When looking up information, resolve in ascending cost order: **cached KB →
 official documentation → open web search**. Move to the next tier only when

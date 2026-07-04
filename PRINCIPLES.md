@@ -312,6 +312,13 @@ Before doing exhaustive code search for a feature, confirm the project's
 lifecycle stage. Pre-implementation work (planning, design, ticket triage)
 rarely needs the codebase searched. Skip the sweep, save the context.
 
+### Surface before applying delegated results
+When a command's role is to surface analysis — from a subagent, a prior read
+pass, or any result-producing step — keep the **surface phase** and the **apply
+phase** distinct. Don't proceed to apply or mutate after surfacing without an
+explicit user confirmation. The results being available is not permission to act
+on them.
+
 ### Broad-then-narrow search under a rate limit
 When the search backend is rate-limited (**e.g.** a hosted code-search API capped
 at ~30 queries/minute), don't fan out exhaustively. Start with one **broad** query

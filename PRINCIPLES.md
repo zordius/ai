@@ -330,6 +330,14 @@ rules** (what to enforce). Both are required — the knowledge baseline alone
 misses the project's conventions; the rules alone miss the mechanics. Treat this
 read as mandatory, not optional background.
 
+### Conform new components to the system's type taxonomy
+Before proposing or building a new component, verify which type it is in the
+system's defined taxonomy (**e.g.** agent / skill / command, or service /
+library / tool) and confirm the component's behaviour fits that type's contract.
+Misclassifying a component to an existing name produces structural inconsistency
+that compounds — each later component inherits the wrong model. When no existing
+type fits, surface that explicitly rather than forcing a nearest-neighbour match.
+
 ### Ripple check on registry-listed components
 When a named component (an agent, a skill, a command, a server, a script — any
 artifact tracked in an index or registry) is added, renamed, or removed, treat

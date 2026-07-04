@@ -510,6 +510,14 @@ answer** (constants / flags / enums → the code; design decisions / specs → t
 docs), and batch by source so independent lookups run in parallel. A gap phrased
 as a sharp question is half-answered; phrased vaguely, it's a fishing trip.
 
+### Dedup and conflict check before adding to a rule set
+When adding a candidate to any rule set, run two checks — not just one.
+**Dedup**: does an existing entry already cover this? If so, drop or merge.
+**Conflict**: does the candidate contradict or supersede an existing entry?
+A candidate that supersedes is not a duplicate — it requires updating or
+retiring the entry it replaces, not just adding alongside it. Running only
+the dedup check misses the case where the new entry makes an old one wrong.
+
 ### Citation contract for fact-making agents
 Verifier-style agents must end every factual claim with `[src: …]` or
 `[TBC: …]`. The contract is preloaded into the agent via its always-loaded

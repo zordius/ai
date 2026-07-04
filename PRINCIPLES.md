@@ -371,7 +371,10 @@ limit is hit anyway.
 - **`process/`** — open-item registers (append-only, no confidence concept)
 
 Each tier has its own merge and write discipline. Don't conflate them —
-the lifecycle and citation rules differ.
+the lifecycle and citation rules differ. **When a pass acquires new knowledge
+from a higher-authority source (official docs, web search) that the cache
+doesn't yet hold, route it back to the appropriate tier — don't let it stay
+only in the current context.**
 
 ### Tests as verified knowledge
 A topic's test suite is its highest-confidence documentation, because CI re-proves

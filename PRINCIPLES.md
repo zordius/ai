@@ -483,6 +483,13 @@ generated files). The evidence-matching is heuristic (**e.g.** a test name
 matching the requirement, an explicit marker comment, a touched function whose
 docs match) — best-effort; flag the unsure. An empty change is never a pass.
 
+### Null fix is a first-class diagnostic outcome
+A diagnostic workflow must treat "no change needed" as a named, valid outcome —
+not a failure to find a fix. When the analysis concludes the current state is
+correct, surface that conclusion explicitly. Omitting it implies the workflow
+always produces a fix, which pressures the model to propose one even when none
+is warranted.
+
 ### Branch repair actions on verdict type, not a generic template
 After a diagnostic pass, choose the repair action based on the **type** of
 finding, not a one-size template. Different verdict types have qualitatively

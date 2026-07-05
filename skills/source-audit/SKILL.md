@@ -109,7 +109,10 @@ agent that analyses and advises does need the advisory-role-boundary principle.
 
 Verdicts per (entry, artifact) pair:
 
-- **applied** — artifact already reflects the principle.
+- **applied** — artifact already reflects the principle. The conformance bar depends on the entry's type marker:
+  - `[rule]` — the behavioral pattern is present in the artifact's steps or rules.
+  - `[method]` — the method's steps are **executed** and their results appear in the output format; merely labelling the concept ("this is advisory") or citing the principle by name is not sufficient — check that each step of the method produces visible output.
+  - `[taxonomy]` — the full classification system is enumerated and applied; a partial or referenced taxonomy is a gap.
 - **gap** — artifact should reflect the principle but doesn't; state what's missing in one sentence.
 - **not-applicable** — principle's domain doesn't touch this artifact's job.
 

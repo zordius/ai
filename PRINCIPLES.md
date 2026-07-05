@@ -544,6 +544,15 @@ answer** (constants / flags / enums → the code; design decisions / specs → t
 docs), and batch by source so independent lookups run in parallel. A gap phrased
 as a sharp question is half-answered; phrased vaguely, it's a fishing trip.
 
+### Evaluate an observed task for automation potential
+
+When a recurring task is noticed and you want to know whether and how to automate it, two questions determine the answer:
+
+1. **What is the irreducible human judgment component?** — identify the step that genuinely requires contextual or values-based choice; the automatable part is everything before that gate.
+2. **Is the context-specificity parameterizable?** — if the task differs across uses only in ways expressible as parameters (target document, question set, scope), the automation generalizes; if the specificity is structural, it stays local.
+
+Together these two questions determine: the *type* of automation (command / agent / hook / rule), the *scope* (one-off vs. general-purpose), and the right *human-gate shape* (approve/reject a ranked list vs. make a judgment call). This is the bottom-up complement to coverage-gap analysis, which finds automation candidates top-down from intent axes.
+
 ### Dedup and conflict check before adding to a rule set
 When adding a candidate to any rule set, run two checks — not just one.
 **Dedup**: does an existing entry already cover this? If so, drop or merge.

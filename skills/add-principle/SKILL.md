@@ -54,6 +54,13 @@ repo has grown substructure, default to `PRINCIPLES.md` but ask which file first
 Draft the addition and **show the user** before touching the file. Apply the
 discipline:
 
+- **Type marker** — before drafting, confirm which type fits:
+  - `[rule]` — a behavioral directive ("always / never / must / do not")
+  - `[method]` — a reusable procedure with named steps; each step must produce visible output
+  - `[taxonomy]` — a named classification system with enumerable, exhaustive categories
+  Assign the marker in the `###` header: `### [rule] Entry name`. A mismatch propagates
+  the wrong conformance bar to every future source-audit that checks against this entry.
+
 - **Generalize** — strip project-specific names; frame concrete cases as "**e.g.**".
 - **Cite-removal** — drop internal-org links, ticket IDs, vault refs dead to a
   public reader.

@@ -600,6 +600,16 @@ Not every entry in a source doc governs how agents, skills, or commands should b
 
 Discard entries that govern the *human/session level* (**e.g.** Fact discipline, Scope discipline) — they belong in an always-loaded doc, not in agents. Checking artifact conformance against human-level discipline entries produces false gaps.
 
+### [rule] Conformance depth varies by entry type marker
+
+When assessing whether a compiled artifact has applied a source entry, the standard for "applied" depends on the entry's type marker:
+
+- **`[rule]`** — the behavioral pattern is present in the artifact's steps or instructions.
+- **`[method]`** — the method's steps are **executed** and their results appear in the output format; labelling the concept or citing the principle by name does not count — each step must produce visible output.
+- **`[taxonomy]`** — the full classification system is enumerated and applied; a partial listing or a cross-reference to the taxonomy is a gap.
+
+Applies when auditing source→compiled conformance. Prevents the false-positive where a concept is named (**e.g.** "this is advisory") but the operational steps are absent from the output.
+
 ### [rule] Frame each gap as a buildable opportunity
 Finding a coverage gap is only the diagnosis; the actionable output is a
 **framed opportunity** — not just "gap in X" but "solving X removes this pain

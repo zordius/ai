@@ -82,8 +82,17 @@ Map each existing component to its intent axis and grade each axis:
 
 ### Step B4 — Frame Opportunities
 
-For each under-covered axis, frame a **buildable opportunity** — not just "gap in X" but "solving X removes this pain point and serves this intent axis." For each, note:
+For each under-covered axis, before framing as a new build, check for existing components that could be extended instead. Apply the extend-vs-new four signals:
+1. **Shared output type** — same caller contract → extending is coherent
+2. **Shared inputs** — same inputs → extending is cheaper
+3. **Identity consistency** — adding the capability blurs the existing component's purpose → build separately
+4. **Convergence point** — shared processing step → co-location adds value
+
+If all four favour extending, frame as a mode or branch of the existing component, not a new build.
+
+For each opportunity, note:
 - What pain point does it solve?
+- Extend an existing component, or build new? (from the four signals above)
 - Does it fit agent / skill / command?
 - What tools would it need?
 - High / Medium / Low priority?

@@ -157,6 +157,7 @@ specific change implied by the principle.
 
 ### Apply Worklist (ranked)
 1. {artifact} — missing {principle}: {what to add}
+   **Pain point**: {what breaks or degrades without it; which intent axis it underserves}
 
 ## Recommended next steps
 1. {first action} — {why first}

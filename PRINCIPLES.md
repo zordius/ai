@@ -363,6 +363,29 @@ updated. The component being changed is not the same as the component's
 references being current. Enumerate the holders from a known consistency rule
 set; don't rely on memory.
 
+### Extend vs. new: add a mode or build a component
+When a new capability overlaps with an existing component, decide whether to extend
+(add a mode or branch) or build separately. Four signals govern the choice:
+
+1. **Shared output type** — if both capabilities produce the same kind of output (same
+   caller contract), extension is coherent; the caller doesn't need to know which mode ran.
+2. **Shared inputs** — if both modes take the same inputs, extension is cheaper:
+   context-loading runs once.
+3. **Identity consistency** — if adding the capability blurs the component's stated
+   purpose, build separately; a confused identity compounds as other components depend on it.
+4. **Convergence point** — if both modes share a meaningful processing step (**e.g.** the
+   same evaluation questions, the same output format), that shared step is the value of
+   co-location.
+
+Extend when all four are favorable. Build separately when identity consistency fails —
+regardless of the other signals.
+
+**Scope expansion and naming**: when extension causes the component's name to no longer
+accurately describe its full scope, rename. Pay the ripple cost (see "Ripple check on
+registry-listed components") — a misleading name compounds faster than a rename ripple.
+The rename trigger: does the current name create a false impression of what the component
+now does?
+
 ### Advisory role boundary for analysis agents
 An agent whose job is to analyse and advise must not execute mutations directly
 — its output is structured suggestions, not actions. The caller decides whether

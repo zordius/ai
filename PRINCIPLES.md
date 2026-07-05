@@ -181,6 +181,15 @@ check) that makes the violation impossible or requires explicit override. Prose
 rules belong when the behaviour requires judgement; enforcement belongs when the
 behaviour is binary and has already proven prose-resistant.
 
+**Enforcement has a ceiling too, and recurrence there isn't a new signal.**
+Once a violation already sits behind a hard block, a recurring blocked attempt
+is the agent's own reflexive generation meeting a safety net that's already
+working — not evidence of a fresh gap. Don't loop back to widening the *prose
+describing* what the block already covers (**e.g.** naming more of a hook's
+already-covered command variants after it denies them correctly every time);
+once enforcement exists, prose was never the bottleneck, so extending it adds
+reading weight with no marginal safety gain.
+
 ---
 
 ## 2. Naming taxonomy

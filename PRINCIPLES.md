@@ -619,6 +619,16 @@ point and serves this purpose." For each gap, state: what pain it causes, why
 filling it is worth the effort, and what kind of solution fits. This converts a
 gap list into a prioritizable backlog rather than an open-ended observation.
 
+### [rule] Attach gate and framing to each apply worklist item
+
+Every item in an apply worklist should carry its three-axis gate assessment
+(Context / Probability / Consequence) and a pain-point framing **inline** —
+not in a trailing advisory paragraph. This makes each item self-contained:
+the reader can decide whether to act without re-deriving context. A trailing
+advisory note ("re-check before acting") is indistinguishable from boilerplate
+and gets skipped; the gate only enforces when it appears alongside the item it
+governs.
+
 ### [method] Turn each gap into a routed, answerable question
 Finding gaps is only half the job (a completeness pass — see "Two-axis review of
 an artifact set" — surfaces them); resolving them efficiently is the other half.

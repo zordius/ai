@@ -163,6 +163,8 @@ specific change implied by the principle.
 ### Apply Worklist (ranked)
 1. {artifact} — missing {principle}: {what to add}
    **Pain point**: {what breaks or degrades without it; which intent axis it underserves}
+   **Gate** — Context: {in play?} | Probability: {near-zero / low / real} | Consequence: {advisory / meaningful / severe}
+   **Verdict**: act / skip / defer — {one-sentence reason}
 
 *(If no gaps: state explicitly — "No findings — all principles applied." Never leave the worklist empty.)*
 
@@ -179,8 +181,17 @@ Both modes are **advisory**. Re-check each finding before acting:
 
 - **Mode 1 orphans/divergents** → add survivors to `LIFT.md`'s ①/②/③ buckets; ship each
   via `/add-principle`; record skips with reasons.
-- **Mode 2 gaps** → for each confirmed gap, update the artifact to reflect the principle.
-  Treat entangled orphans (Band A fused with Band C) as needing a careful manual decompile pass.
+- **Mode 2 gaps** → the Apply Worklist carries a three-axis gate verdict per item; act on
+  **act** verdicts, record reasons for **skip**/**defer**. If the gate is absent for any item,
+  run it now across three axes:
+  1. **Context** — is the artifact in a position where this principle's domain is in play?
+  2. **Probability** — how likely is the gap to manifest in practice? Near-zero (trusted input,
+     empirically never triggered) → skip.
+  3. **Consequence** — what degrades or breaks? Advisory-only / recoverable → deprioritize;
+     silent failure or propagated misinformation → act.
+
+  Act when probability is real AND consequence is meaningful. Record every skip with a reason —
+  a silent skip is indistinguishable from an overlooked finding.
 
 Entangled orphans still lift — the method core usually abstracts cleanly once the Band C wiring
 is generalized to **e.g.**; flag them so the decompile gets a manual pass, not a mechanical move.

@@ -45,3 +45,8 @@ Findings grounded in the artifacts (cite where each lives); surface every confli
 with both sides rather than resolving it silently. Keep *what's missing*
 (completeness / not-covered) separate from *what doesn't line up* (consistency /
 scope-creep).
+
+If no findings: state explicitly — "No findings: [two-axis: all sections present,
+all decisions consistent] / [bidirectional: all requirements covered, no
+scope-creep candidates]." Never leave the output empty — an empty output is
+indistinguishable from an incomplete run.

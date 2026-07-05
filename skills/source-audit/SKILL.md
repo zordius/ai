@@ -145,6 +145,8 @@ specific change implied by the principle.
 ### Orphan / Divergent Worklist (ranked)
 1. {artifact} — {Band A summary} → target section: {PRINCIPLES.md §N} [⚠️ entangled?]
 
+*(If no orphaned / divergent findings: state explicitly — "No findings — all artifacts sourced+conformant." Never leave the worklist empty.)*
+
 ## Mode 2 — Apply worklist (source → artifacts)
 
 ### Filter
@@ -158,6 +160,8 @@ specific change implied by the principle.
 ### Apply Worklist (ranked)
 1. {artifact} — missing {principle}: {what to add}
    **Pain point**: {what breaks or degrades without it; which intent axis it underserves}
+
+*(If no gaps: state explicitly — "No findings — all principles applied." Never leave the worklist empty.)*
 
 ## Recommended next steps
 1. {first action} — {why first}

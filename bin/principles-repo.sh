@@ -3,7 +3,7 @@
 # <root>/bin/), so there is no hardcoded path to go stale.
 #
 #   principles-repo.sh path     → print the repo root, UNGUARDED. For read-only
-#                                 callers (e.g. lift-audit reading PRINCIPLES.md).
+#                                 callers (e.g. source-audit reading PRINCIPLES.md).
 #   principles-repo.sh [guard]  → print the root ONLY in author-mode: a *writable*
 #                                 git clone of zordius/ai. For the WRITE path
 #                                 (add-principle's commit+push). Exits non-zero

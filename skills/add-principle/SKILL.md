@@ -59,9 +59,16 @@ discipline:
   public reader.
 - **Counterfactual-absence gate** (PRINCIPLES §6) — before adding, imagine the
   entry gone with the rest of the corpus present: if nothing breaks because an
-  existing entry already covers it, **don't add it** (no reworded twins); if only
-  *part* is uncovered, lift that part and **reference** the covering entry instead
-  of restating it.
+  existing entry already covers it, **STOP — do not proceed to Edit**; tell the
+  user the draft is redundant and name the covering entry (no reworded twins); if
+  only *part* is uncovered, lift that part and **reference** the covering entry
+  instead of restating it.
+- **Conflict / supersession check** — after the absence gate passes, scan for:
+  (a) **contradiction** — any existing entry that says the opposite; if found,
+  **STOP — do not proceed to Edit**; surface both entries to the user for
+  resolution before adding. (b) **supersession** — any existing entry this new
+  one makes obsolete; if found, propose retiring or updating the old entry
+  alongside the addition (don't leave stale rules in place).
 - **Lifecycle-axis naming / trigger-phrase pointers** — if extending the naming
   taxonomy or adding a consulted-doc rule, follow those conventions.
 

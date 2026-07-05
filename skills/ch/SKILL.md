@@ -1,6 +1,6 @@
 ---
 name: ch
-description: Switch user↔agent communication to Traditional Chinese (繁體中文) for the rest of the session. On invocation, re-states the previous assistant turn in Traditional Chinese if it was in another language. File outputs, code, commit messages, and technical terms keep their English names.
+description: Switch user↔agent communication to Traditional Chinese (繁體中文) for the rest of the session. On invocation, always re-states the previous assistant turn in Traditional Chinese regardless of its original language. File outputs, code, commit messages, and technical terms keep their English names.
 ---
 
 # 繁體中文通訊模式
@@ -8,8 +8,7 @@ description: Switch user↔agent communication to Traditional Chinese (繁體中
 ## 立即執行（invoke 時）
 
 1. 查看**上一個 assistant turn**（這個 `/ch` 指令之前的那一條）。
-2. **如果那個 turn 不是繁體中文**：用繁體中文重新說一次那個 turn 的內容，再宣告切換完成。
-3. **如果上一個 turn 已經是繁體中文**：直接宣告切換完成，不重複。
+2. 用繁體中文重新說一次那個 turn 的內容（不管原本是什麼語言），再宣告切換完成。
 
 ## 持續規則（本次 session 剩餘部分）
 

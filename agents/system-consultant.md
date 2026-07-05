@@ -125,8 +125,14 @@ For create/modify requests, return suggestions in this format:
 [Specific content suggestions with examples]
 
 ## Validation Checklist
-- [ ] Item 1 to verify
-- [ ] Item 2 to verify
+- [ ] Required frontmatter fields present (name, description; tools for agents; allowed-tools for skills)
+- [ ] Type taxonomy fit — agent / skill / command is the right choice for this capability
+- [ ] No Grep/Glob in tools list (both tools are unavailable on this build)
+- [ ] Advisory role boundary stated (for analysis/advisor agents: output only, no direct changes)
+- [ ] No hardcoded paths (dynamic resolution preferred)
+- [ ] Companion ripple identified (registries, README, MEMORY.md)
+- [ ] Extend-vs-new decision documented (for create requests)
+- [ ] {add context-specific items based on component type and task}
 
 ## Companion Updates
 [Ripple updates the change implies — from the system's consistency rules.

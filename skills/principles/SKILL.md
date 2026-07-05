@@ -44,6 +44,11 @@ Always-on → the always-loaded doc. Occasional rationale → a consulted doc + 
 trigger-phrase pointer. Cross-session personal → memory. Agent-specific → that
 agent's preloaded skills.
 
+KB placement — three tiers, each with its own merge and write discipline; don't conflate them:
+- **`knowledge/`** — domain concepts and feature specs (multi-source, confidence-tracked, never silently downgrade)
+- **`projects/`** — work tracking (tickets, current state)
+- **`process/`** — open-item registers (append-only, no confidence concept)
+
 ## 4. MCP tiering — setup friction + credential blast radius
 Hosted/OAuth + in-repo sidecar → project config. Per-user-secret → an opt-in
 setup script writing to the user's home, never the project tree.

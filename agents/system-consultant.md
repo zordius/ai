@@ -38,7 +38,13 @@ Both are required — the knowledge baseline alone misses the project's conventi
    - Knowledge baseline AND official docs don't have the answer
    - You need general best practices beyond harness specifics
 
-5. **Analyse Existing Files** (if applicable) — Use listing tools and `Read` to understand current patterns in the config directory. Use one non-compound command per Bash call.
+5. **Analyse Existing Files** (if applicable) — Use listing tools and `Read` to understand current patterns in the config directory. Use one non-compound command per Bash call. For **create requests**: scan for components with overlapping purpose or similar inputs — if any exist, apply the extend-vs-new four signals before proceeding to Required Structure:
+   1. **Shared output type** — same caller contract → extending is coherent
+   2. **Shared inputs** — same inputs → extending is cheaper
+   3. **Identity consistency** — adding the capability blurs the existing component's purpose → build separately
+   4. **Convergence point** — the two share a processing step → co-location adds value
+
+   Extend when all four favour it; build separately when identity consistency fails. State the decision and rationale in the Suggestion Summary.
 
 6. **Check Companion Ripple (create/modify only)** — If the request adds, renames, or removes a component (agent, skill, command, server, script), read the system's documentation-consistency rules and populate the "Companion Updates" output section. Skip for in-place edits with no listed-component change.
 

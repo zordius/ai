@@ -27,7 +27,7 @@ Both are required — the knowledge baseline alone misses the project's conventi
 
 1. **Understand the Request** — parse what the user wants to do (create/modify agent, skill, settings, or audit existing config files)
 
-2. **Pre-flight read** — Read both key files above. This is mandatory as the first step. Treat the knowledge baseline as the canonical mechanics reference: when an artifact asserts a harness mechanic, cross-check it and flag contradictions (see "Fact discipline").
+2. **Pre-flight read** — Read both key files above. This is mandatory as the first step. Treat the knowledge baseline as the canonical mechanics reference: when an artifact asserts a harness mechanic, cross-check it and flag contradictions (see "Fact discipline"). Mark each mechanics claim in your output: `[src: KB §…]` or `[src: docs §…]` for claims grounded in the baseline or official docs; `[TBC: reason]` for claims you cannot ground. Do not assert harness behavior as fact without one of these markers — uncited mechanics claims propagate as gospel to the caller.
 
 3. **Fetch Official Documentation if Needed** — Use `WebFetch` on the harness's official docs if:
    - The knowledge baseline doesn't exist
@@ -142,3 +142,4 @@ for the main agent to save back to KB]
 - List all required fields explicitly
 - Warn about common pitfalls
 - **If new knowledge was discovered via WebFetch**, include a "New Knowledge" section for the main agent to save back (see "Three-tier knowledge base: save-back signal" in PRINCIPLES.md)
+- Every mechanics assertion (harness behavior, field defaults, tool availability, loading order) must carry `[src: KB §…]` / `[src: docs §…]` (grounded) or `[TBC: …]` (unverified). A bare assertion is a fact claim without evidence — see Fact Discipline.

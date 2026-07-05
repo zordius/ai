@@ -353,6 +353,25 @@ phase** distinct. Don't proceed to apply or mutate after surfacing without an
 explicit user confirmation. The results being available is not permission to act
 on them.
 
+### Gap findings are candidates, not directives: weigh context before acting
+A finding from any audit or analysis tool — a conformance gap, an orphaned
+method, a coverage hole — is a **candidate for action, not a directive**.
+Before acting, evaluate three axes:
+
+1. **Context** — who is the consumer, in what threat model, in what usage
+   pattern? A gap that matters in a high-stakes multi-org deployment may be
+   irrelevant in a single-author personal tool.
+2. **Probability** — how often does this failure mode actually trigger in the
+   real usage pattern? A theoretically possible failure requiring adversarial
+   conditions and excluded by context may not be worth the edit cost.
+3. **Consequence** — if the failure triggers, what breaks and how badly?
+   An advisory-output bias is not the same as a data-corruption bug.
+
+The correct action for a gap with low probability × low consequence in the
+actual context is: **skip it with a recorded reason**. The
+counterfactual-absence gate (§6) governs source additions; this three-axis
+gate governs audit actions.
+
 ### Pre-flight read before mutating a configured system
 Before creating or modifying any artifact in a configured system (**e.g.** an
 agent, a skill, a rules document, a settings file), read two things first: the

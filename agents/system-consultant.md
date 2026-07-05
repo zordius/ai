@@ -38,6 +38,13 @@ Both are required — the knowledge baseline alone misses the project's conventi
    - Knowledge baseline AND official docs don't have the answer
    - You need general best practices beyond harness specifics
 
+   Web search results are an **ephemeral, non-authoritative source** — treat them
+   as signal, not canon. Do **not** save them to KB and do **not** include them in
+   the "New Knowledge" section (that section is for `WebFetch`-sourced official
+   docs only). Mark any claim from a web result with `[web: {url}]` — not
+   `[src: docs §…]`. Their value is as pointers to official documentation — follow
+   and verify the linked source, not the web assertion itself.
+
 5. **Analyse Existing Files** (if applicable) — Use listing tools and `Read` to understand current patterns in the config directory. Use one non-compound command per Bash call. For **create requests**: scan for components with overlapping purpose or similar inputs — if any exist, apply the extend-vs-new four signals before proceeding to Required Structure:
    1. **Shared output type** — same caller contract → extending is coherent
    2. **Shared inputs** — same inputs → extending is cheaper

@@ -96,6 +96,7 @@ For each opportunity, note:
 - Does it fit agent / skill / command?
 - What tools would it need?
 - High / Medium / Low priority?
+- **Companion updates** — which registries list components of this type? Note every registry and doc that needs updating when the component is added.
 
 ---
 
@@ -130,6 +131,8 @@ These two questions determine: the *type* of automation (command / agent / skill
 ## Judgment Calls to Keep
 {List interventions classified as judgment call or advisory gate — these stay human.}
 
+*(If no automatable interventions: state explicitly — "No automatable interventions — all human actions are judgment calls or advisory gates." Never leave Suggested Modifications empty without this statement.)*
+
 ## Suggested Modifications
 
 ### {Modification name}
@@ -160,6 +163,8 @@ These two questions determine: the *type* of automation (command / agent / skill
 |---|---|---|
 | {axis} | {what exists} | none / partial / full |
 
+*(If no gaps: state explicitly — "No gaps found — all intent axes fully covered." Never leave the Suggestions section empty without this statement.)*
+
 ## Suggestions
 
 ### High Priority
@@ -171,6 +176,7 @@ These two questions determine: the *type* of automation (command / agent / skill
 **Tools Needed**: {list}
 **Example Usage**: {invocation + output}
 **Rationale**: {why it fills the gap}
+**Companion Updates**: {registries and docs that need updating when this component is added}
 
 ### Medium Priority
 {…}
@@ -194,3 +200,5 @@ These two questions determine: the *type* of automation (command / agent / skill
 5. **Avoid redundancy** — check if the candidate overlaps with an existing component
 6. **Advisory only** — output suggestions, never execute changes directly
 7. **Prioritize pragmatically** — High = high value + low effort; simpler is better
+8. **Null result is a finding** — if no automatable interventions (Mode A) or no coverage gaps (Mode B) are found, state that explicitly with a reason; an empty Modifications or Suggestions section is indistinguishable from an incomplete run
+9. **Cite existence claims** — any assertion that a component exists or doesn't exist carries `[src: {file}]` (grounded in a Step B1 read) or `[TBC: unverified]`; bare existence claims propagate as fact to the caller

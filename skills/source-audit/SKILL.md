@@ -98,6 +98,9 @@ that carry **design implications for agents, skills, or commands**. The three si
 Discard discipline rules that govern the *human/session level* (Fact discipline, Scope discipline,
 Abbreviation discipline) — they belong in `CLAUDE.md`, not in agents.
 
+These three categories are the audit's **intent axes** — track per-category gap counts during
+Step 2b to populate the coverage matrix in the output.
+
 ### Step 2b — Check each filtered entry against the target artifacts
 
 For each filtered entry, scan the artifacts and ask:
@@ -154,6 +157,14 @@ specific change implied by the principle.
 
 ### Filter
 {N} of {total} PRINCIPLES.md entries are agent-design-relevant.
+
+### Coverage matrix
+
+| Intent axis | Filtered entries | Gaps found | Coverage |
+|---|---|---|---|
+| Agent behavior rules | {count} | {count} | none / partial / full |
+| Construction patterns | {count} | {count} | none / partial / full |
+| Source/compiled architecture rules | {count} | {count} | none / partial / full |
 
 ### Conformance gaps
 | Principle | Artifact | What's missing |

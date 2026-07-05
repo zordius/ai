@@ -113,7 +113,18 @@ Things that don't survive abstraction: org-tooling specifics (Jira, internal URL
 Slack channels), KB content for specific features, org-specific protocols, or
 anything that reads as a private blog entry rather than a transferable principle.
 
-## Recompile note
+## Step 6 — Ripple check
 
-`PRINCIPLES.md` is **source**, kept off the runtime path — editing it does **not**
-change any loaded plugin skill until that skill is recompiled from the new source.
+`PRINCIPLES.md` is **source** — the new entry is now in canon, but compiled
+artifacts (agents, skills, `CLAUDE.md`) won't reflect it until explicitly updated.
+Based on the entry's signal category, the likely-affected surfaces are:
+
+- **Agent behavior rules** → `agents/` (agents whose job brings the domain into play);
+  possibly `CLAUDE.md` if it's a session-level behavioral rule.
+- **Construction patterns** → `agents/` and `skills/`.
+- **Source/compiled architecture rules** → `skills/source-audit/`, `skills/add-principle/`,
+  `skills/principles/`.
+
+Surface the gaps: run `/source-audit` against the relevant surfaces (Mode 2 — compile
+direction). This is the standard way to find which artifacts now have a gap against
+the new entry. No need to act here — naming the surfaces is the ripple check.

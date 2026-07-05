@@ -234,6 +234,20 @@ you'd otherwise re-derive.** Don't put design rationale in CLAUDE.md — it
 inflates context for every session, when it's only needed when the decision
 comes up.
 
+**SPLIT vs. POSITIVE removal**: when auditing a section of an always-loaded doc
+for possible removal, distinguish two cases:
+
+- **SPLIT** — the content belongs in a consulted doc, but the trigger that tells
+  the agent "now is the time to look this up" lives in the always-loaded section.
+  Move the bulk; leave a trigger-phrase pointer, or routing silently breaks.
+- **POSITIVE** — the trigger comes from outside the always-loaded doc (the task
+  description, the user's request, the ticket). No always-loaded cue needed;
+  remove both the content and any pointer entirely.
+
+Test: *would the agent know to look this up without any pointer in the
+always-loaded doc?* If yes → POSITIVE. If not → SPLIT. Conflating them strips
+the routing trigger along with the bulk, orphaning the consulted doc.
+
 ---
 
 ## 4. MCP tiering — what goes in project config
@@ -648,6 +662,21 @@ Only **Band A** goes to source; generalize its concrete B/C touchpoints to
 abstracts cleanly once you name the B/C it was fused with and lift only the core.
 This is the decompile half of source-vs-compiled: Band A is the source; B and C
 are what a compile re-supplies for a given environment.
+
+### Generalise before publishing to a shared source
+After extracting Band A from an artifact, strip it further before committing
+it to a shared or public source doc. Three steps:
+1. **Name removal** — replace internal product/org names with "the X system" or a
+   generic role descriptor ("the ticket tracker", "the chat platform").
+2. **Link removal** — excise internal-org links (ticket IDs, vault refs, internal
+   URLs); a dead reference makes the entry read as a project log, not a principle.
+3. **Instance → "e.g."** — when the principle was discovered from a specific case,
+   keep the generalizable rule and append the case as `(**e.g.** …)` to show
+   transferable applicability without hardcoding it.
+
+This step is distinct from Band-A classification (which decides *what* to keep): it
+is the writing step that ensures Band A reads as a transferable principle in another
+context rather than a verbatim org procedure.
 
 ### A lesson earns its source slot only if its absence would bite
 Before adding a distilled lesson to the source, run a **counterfactual-absence

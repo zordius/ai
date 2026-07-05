@@ -591,6 +591,15 @@ the build candidates**, ranked by value-over-effort. This grounds every proposal
 in a stated purpose (so it can't be a solution looking for a problem) and surfaces
 redundancy — two components on the same axis — at the same time.
 
+### [taxonomy] Three-signal filter: agent-design-relevant source entries
+Not every entry in a source doc governs how agents, skills, or commands should be built. Before checking artifact conformance, filter to entries that carry design implications. Three signal categories:
+
+1. **Agent behavior rules** — principles an agent should follow in its own operation (**e.g.** advisory role boundary, pre-flight read requirement)
+2. **Construction patterns** — method patterns describing how to build an automation (**e.g.** type taxonomy conformance, tiered resolution)
+3. **Source/compiled architecture rules** — how artifacts should relate to source (**e.g.** durable lessons in source, purpose-layer organization)
+
+Discard entries that govern the *human/session level* (**e.g.** Fact discipline, Scope discipline) — they belong in an always-loaded doc, not in agents. Checking artifact conformance against human-level discipline entries produces false gaps.
+
 ### [rule] Frame each gap as a buildable opportunity
 Finding a coverage gap is only the diagnosis; the actionable output is a
 **framed opportunity** — not just "gap in X" but "solving X removes this pain
@@ -618,6 +627,20 @@ When a recurring task is noticed and you want to know whether and how to automat
 
 Together these two questions determine: the *type* of automation (command / agent / skill / hook / rule), the *scope* (one-off vs. general-purpose), and the right *human-gate shape* (approve/reject a ranked list vs. make a judgment call). This is the bottom-up complement to coverage-gap analysis, which finds automation candidates top-down from intent axes.
 
+### [taxonomy] Six-type human-intervention taxonomy
+When a human intervenes during or after a workflow, classify the intervention before deciding whether to automate it. Six mutually exclusive types:
+
+| Type | Description | Automatable? |
+|---|---|---|
+| **Information gap** | Workflow lacked data and asked for it | Yes — add pre-flight read |
+| **Mechanical confirmation** | User always answers the same way | Yes — auto-proceed or absorb into step |
+| **Manual post-step** | User performed a manual step after the workflow finished | Yes — extend the workflow |
+| **Output insufficiency** | Output required further lookup before the user could act | Yes — improve output completeness |
+| **Judgment call** | Decision requires values or context only the human has | No — this IS the human gate; keep it |
+| **Advisory gate** | Intentional approval before an irreversible action | No — removing it makes the automation untrustworthy |
+
+Automatable types map to a specific fix location (pre-flight / step expansion / post-step / output format). Non-automatable types must be surfaced explicitly as "keep human" — never silently dropped. The classification also determines the human-gate shape: automatable → approve/reject a proposed change; non-automatable → make a judgment call.
+
 ### [rule] Dedup and conflict check before adding to a rule set
 When adding a candidate to any rule set, run two checks — not just one.
 **Dedup**: does an existing entry already cover this? If so, drop or merge.
@@ -625,6 +648,16 @@ When adding a candidate to any rule set, run two checks — not just one.
 A candidate that supersedes is not a duplicate — it requires updating or
 retiring the entry it replaces, not just adding alongside it. Running only
 the dedup check misses the case where the new entry makes an old one wrong.
+
+### [method] Self-consistency audit for rule sets
+When auditing a rule set for internal contradiction, run four conflict heuristics across the full set (including across sub-files — conflicts often straddle them):
+
+1. **Action vs. flag** — one rule says "do X" while another flags "doing X" as a violation
+2. **Same-topic divergence** — two rules on the same topic give different guidance
+3. **Stale-by-date supersession** — an older rule that a newer one has made obsolete
+4. **Reconciliation guard** — a candidate that merely adds a reconciler between two rules is not itself a conflict; don't misfire here
+
+A self-conflict in the rule set propagates wrong guidance into every artifact compiled from it. This is the read-time complement to "Dedup and conflict check before adding to a rule set" — one fires when writing; this fires when auditing what's already there.
 
 ### [rule] Citation contract for fact-making agents
 Verifier-style agents must end every factual claim with `[src: …]` or
@@ -645,6 +678,24 @@ artifacts assume. Diff the dependencies, not just the files; install/enable
 what's missing; then verify behavior, not file contents. Ported artifacts also
 carry their origin's assumptions (**e.g.** comments describing history or paths
 that are false in the new context) — fact-check before adopting verbatim.
+
+### [method] Always-loaded content placement audit
+When auditing whether a section of an always-loaded doc should stay, move, or be removed, evaluate each section across five concern areas:
+
+- **Recognition and routing** — would an agent know, from task context alone, that guidance for this situation exists? If the trigger-word disappears when the section moves, a pointer is mandatory.
+- **Purpose layer** — Operational (always-on behavior every session) vs. Rationale / Governance / Reference (occasional)
+- **Fact-claim stability** — does the section assert facts about tool names, paths, or config keys? Stale mechanism claims spread misinformation to every session; flag as a secondary maintenance signal even when the section classifies as KEEP.
+- **Frequency and separability** — every session regardless of task type, or only for specific task types? Are sub-rules separable with different frequencies?
+- **Redundancy** — does another section partially cover this?
+
+Signals produce four verdicts. **Stricter wins** — one KEEP signal overrides SPLIT or POSITIVE:
+
+- **KEEP** — any negative-knowledge signal (agent won't recognize the situation without it) or silent failure mode
+- **SPLIT** — recognized from context; trigger survives as pointer; non-Operational purpose layer
+- **POSITIVE** — external task context alone provides the trigger; failure is loud or recoverable
+- **MIXED** — sub-rules with genuinely different verdicts; name each part separately
+
+(The two removal paths, SPLIT and POSITIVE, are defined in §3.)
 
 ---
 

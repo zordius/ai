@@ -303,6 +303,8 @@ Generated commits follow [Conventional Commits 1.0](https://www.conventionalcomm
 end with a co-author footer announcing AI authorship. Standard format means
 release tooling and changelog generators just work.
 
+**Scope note:** personal public repos omit the co-author footer — it is an org-identity signal that carries no meaning outside an org context.
+
 ### [method] Setup-script-as-bootstrap
 Per-user-secret tools get a `setup-<name>.sh` that's idempotent, fetches
 secrets via a vault CLI (e.g. `op read`), writes to the user's home — not
@@ -697,6 +699,7 @@ When auditing whether a section of an always-loaded doc should stay, move, or be
 - **Fact-claim stability** — does the section assert facts about tool names, paths, or config keys? Stale mechanism claims spread misinformation to every session; flag as a secondary maintenance signal even when the section classifies as KEEP.
 - **Frequency and separability** — every session regardless of task type, or only for specific task types? Are sub-rules separable with different frequencies?
 - **Redundancy** — does another section partially cover this?
+- **Self-sufficiency** — does the section assume context (other docs, agent state, prior turns) that may not be loaded? Content that silently depends on an absent context belongs in the doc it depends on, not always-loaded.
 
 Signals produce four verdicts. **Stricter wins** — one KEEP signal overrides SPLIT or POSITIVE:
 

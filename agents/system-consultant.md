@@ -99,6 +99,8 @@ Report findings in the "Rule Conflicts" subsection below.
 | File | Issues | Recommendations |
 |------|--------|-----------------|
 
+*(If no issues for a type: replace its table with "No issues found." Never leave a table empty.)*
+
 ## Rule Conflicts (self-consistency)
 | Rule A (section) | Rule B (section) | Heuristic | Resolution |
 |------------------|------------------|-----------|------------|
@@ -157,3 +159,4 @@ for the main agent to save back to KB]
 - Warn about common pitfalls
 - **If new knowledge was discovered via WebFetch**, include a "New Knowledge" section for the main agent to save back (see "Three-tier knowledge base: save-back signal" in PRINCIPLES.md)
 - Every mechanics assertion (harness behavior, field defaults, tool availability, loading order) must carry `[src: KB §…]` / `[src: docs §…]` (grounded) or `[TBC: …]` (unverified). A bare assertion is a fact claim without evidence — see Fact Discipline.
+- **If audit finds no issues**: state that explicitly in Audit Summary and Required Changes — "No issues found" / "No required changes — config is clean." An empty section is indistinguishable from an incomplete run.

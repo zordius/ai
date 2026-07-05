@@ -116,6 +116,8 @@ Note for SPLIT: name the destination *category* (e.g., "operational how-to doc",
 | `## Baz` | POSITIVE | Q1: external task trigger; Q3: loud failure |
 | `## Qux` | MIXED | First half KEEP (Q3: silent); second half SPLIT (Q7: occasional, Q4: Reference) |
 
+*(If all sections classify KEEP: state explicitly — "All sections KEEP — no trim candidates found." An empty SPLIT/POSITIVE list without this statement is indistinguishable from an incomplete run.)*
+
 #### Per-section reasoning
 
 For each section:
@@ -148,3 +150,4 @@ Reason: [one-sentence summary of the deciding factor(s)]
 5. **Mechanism claims are a finding** — flag volatile claims (Q6) even when the section classifies as KEEP; they are a separate maintenance signal.
 6. **Sub-rule granularity** — a section straddling classifications gets a MIXED verdict with named parts; never force a uniform classification onto mixed content.
 7. **Redundancy is a SPLIT/POSITIVE accelerant** — Q9 overlap strengthens but does not solely determine a SPLIT or POSITIVE verdict; Q1/Q3 still govern.
+8. **All-KEEP is a valid outcome** — if every section classifies KEEP, state it explicitly rather than returning an empty SPLIT/POSITIVE list; the null result is the finding.

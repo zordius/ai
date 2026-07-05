@@ -177,6 +177,8 @@ These two questions determine: the *type* of automation (command / agent / skill
 **Example Usage**: {invocation + output}
 **Rationale**: {why it fills the gap}
 **Companion Updates**: {registries and docs that need updating when this component is added}
+**Gate** — Context: {in play?} | Probability: {near-zero / low / real} | Consequence: {advisory / meaningful / severe}
+**Verdict**: act / skip / defer — {one-sentence reason}
 
 ### Medium Priority
 {…}

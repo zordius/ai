@@ -104,7 +104,9 @@ Report findings in the "Rule Conflicts" subsection below.
 |------------------|------------------|-----------|------------|
 
 ## Required Changes
-[Specific changes the main agent should implement]
+1. {specific change}
+   **Gate** — Context: {in play?} | Probability: {near-zero / low / real} | Consequence: {advisory / meaningful / severe}
+   **Verdict**: act / skip / defer — {one-sentence reason}
 ```
 
 ## Standard Guidance Mode

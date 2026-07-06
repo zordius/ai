@@ -84,6 +84,12 @@ For each section, answer the following questions. Keep each answer to one senten
 
 ---
 
+#### Dimension G — Enforcement layer
+
+**Q10 Platform enforcement**: Is this section's rule structurally enforced by the runtime, harness, or capability boundary — such that the agent has no mechanism to violate it regardless of what the doc says? (**e.g.** a tool absent from the session's tool list cannot be called even if the doc doesn't mention it; a harness hook that always fires before the relevant tool call.) Answer *yes* (rule is platform-enforced — doc records structural reality) or *no* (rule depends on the doc to shape agent behavior).
+
+---
+
 ### Step 3 — Classify
 
 Apply the rules below. When signals conflict, **the stricter classification wins** (KEEP beats SPLIT beats POSITIVE).
@@ -104,6 +110,9 @@ Apply the rules below. When signals conflict, **the stricter classification wins
 - Q2: no pointer needed — the external signal is sufficient
 - Q3: failure is loud or recoverable
 - Q4: not Operational
+*or* Q10: rule is platform-enforced — agent cannot violate it regardless of documentation
+  (platform-fact; doc records structural reality rather than shaping behavior; Q10 overrides
+  all other signals — a platform-enforced section classifies POSITIVE regardless of Q1–Q9)
 
 **MIXED when:**
 - Q8 identifies sub-rules with different classifications — report each part separately
@@ -139,6 +148,7 @@ Q6: [stable / volatile / none — one sentence]
 Q7: [every-session / task-specific — one sentence]
 Q8: [separable / not — if separable, list parts]
 Q9: [redundancy: yes (name) / no]
+Q10: [platform-enforced / not — one sentence; if yes, name the enforcement mechanism]
 
 Classification: KEEP / SPLIT / POSITIVE / MIXED
 Reason: [one-sentence summary of the deciding factor(s)]

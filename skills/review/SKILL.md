@@ -17,6 +17,8 @@ spec↔implementation coverage" — read those for rationale.)
 - **A spec and its realization** — across an abstraction gap, one must satisfy the
   other (**e.g.** requirements/AC vs the code; a design vs the built UI) →
   **Bidirectional coverage** (below).
+- **A behavioral instruction file** — an always-loaded operational doc (**e.g.**
+  `CLAUDE.md`) → **Three-axis** (below).
 - Other relationships (sequence, containment) generate their own checks the same
   way — name what "holds" means, then check it.
 
@@ -30,6 +32,21 @@ Run **both** — they catch different defects:
   standard questions (edge/error/empty states, all paths, copy).
 - **Consistency** — cross-artifact parity: agree on every decision, value, scope?
   On a conflict, **name both sides, never silently reconcile**.
+
+## Three-axis review (behavioral instruction file)
+Run **all three** — completeness and consistency catch different defects; necessity
+catches rules that are already enforced elsewhere:
+- **Completeness** — each section vs its expected structure; flag missing guidance,
+  stray TBDs, unanswered standard questions.
+- **Consistency** — sections agree with each other and with the disciplines they
+  define. On a conflict, **name both sides, never silently reconcile**.
+- **Necessity** — for each rule or guidance block, ask: *if this were removed, would
+  the agent's behavior change?* A rule structurally enforced by the runtime, harness,
+  or capability boundary is a **platform-fact** — the agent cannot violate it
+  regardless of documentation. Such rules add reading weight without behavioral
+  coverage and are trim candidates. Apply the enforcement-layer test: *"Could the
+  agent violate this rule if the doc didn't mention it?"* If no → platform-fact →
+  trim candidate.
 
 ## Bidirectional coverage (spec ↔ realization)
 - **Forward (spec → change)** — every requirement maps to a concrete reference in

@@ -61,11 +61,21 @@ For each artifact, classify its content into three bands (judge Band A only):
 - **borderline** — some portable method but the counterfactual-absence gate is genuinely
   ambiguous (obvious once stated, or mostly rhymes an existing entry); flag for human judgment.
 - **pure-glue** — negligible Band A (mostly Band B/C orchestration); excluded from denominator.
+- **platform-fact** — the text describes a structural impossibility enforced by the
+  harness/runtime (e.g. a tool absent from the agent's `tools:` list, a runtime constraint),
+  not a behavioral choice the model could make. Excluded from the lift worklist; the artifact
+  is documenting reality, not enforcing a rule.
 
 **Discipline:** only call something sourced/redundant if you can **name** the covering entry
 ("vaguely similar" ≠ covered). Apply the **counterfactual-absence gate** — if removing a
 candidate wouldn't bite because an entry already covers it, it's not a lift; if only *part* is
 uncovered, note that the lift should **reference** the covering entry, not restate it.
+
+**Platform-fact gate** — before calling something orphaned, ask: *"If this rule were removed
+from the artifact, could the model violate it?"* If no (the harness makes it structurally
+impossible), tag it `platform-fact` and exclude it from the lift worklist. A rule repeated
+across many artifacts can still be a platform fact — frequency of documentation ≠ behavioral
+rule.
 
 ### Mode 1 output
 
@@ -143,7 +153,7 @@ specific change implied by the principle.
 ### Findings
 | Artifact | Verdict | Notes |
 |---|---|---|
-| {name} | orphaned / divergent / borderline / sourced / pure-glue | {one line} |
+| {name} | orphaned / divergent / borderline / sourced / pure-glue / platform-fact | {one line} |
 
 **Counts**: {orphaned} orphaned, {divergent} divergent, {borderline} borderline,
 {sourced} sourced+conformant, {glue} pure-glue / {denominator} auditable

@@ -619,6 +619,26 @@ realization is scope-creep, not a peer conflict. Applying the wrong shape misfir
 "scope-creep". Other relationships (sequence, containment) generate their checks
 the same way.
 
+### [rule] Behavioral instruction file review requires a necessity axis
+
+When reviewing a behavioral instruction file (**e.g.** an always-loaded operational
+doc), the standard two-axis review (completeness + consistency — see "Two-axis
+review of an artifact set") is insufficient. A third axis is required: **necessity**.
+
+For each rule or guidance block, ask: *if this were removed, would the agent's
+behavior change?* A rule that is structurally enforced by the runtime, harness, or
+capability boundary is a **platform-fact** — the agent cannot violate it regardless
+of documentation. Such a rule adds reading weight without adding behavioral coverage
+and is a trim candidate.
+
+Apply the enforcement-layer test (see "Classify by enforcement layer before
+classifying as behavioral rule") to each item before concluding it is necessary.
+
+The three-axis shape for behavioral instruction file review:
+1. **Completeness** — is anything required missing?
+2. **Consistency** — do sections agree with each other and with the disciplines they define?
+3. **Necessity** — would removing this change behavior, or is a lower layer already enforcing it?
+
 ### [method] Coverage-gap analysis against intent axes
 To find what a system is missing, don't brainstorm features — first name the
 system's **intent axes** (the handful of purposes it exists to serve — **e.g.**

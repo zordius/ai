@@ -141,6 +141,21 @@ that opened it. The source's value is usually its **pointers** — links to the
 authoritative doc/ticket where the real answer lives — not its assertions. (For
 conflicting claims, apply Fact discipline: surface both, don't force a consensus.)
 
+### [rule] Action recommendations must include the executable path
+
+An advisory output item — a worklist entry, a suggestion, a candidate rule — is
+incomplete without a **concrete execution path**: the specific command, skill, or
+tool to invoke, with its **fully-qualified name**. "Add to X" or "fix Y" is not
+actionable on its own; the reader should not have to derive how to execute the
+recommendation.
+
+When identifying the execution path, search both the project's own
+commands/skills and any loaded plugin namespaces. Use the fully-qualified invocation
+form (**e.g.** `/zordius-ai:add-principle` rather than `/add-principle`; a bare
+name without namespace resolves ambiguously when multiple plugins are loaded). If
+no tool exists for the action, say so explicitly and describe the manual steps
+instead — never leave the path implicit.
+
 ### [rule] Don't punt the homework onto the consumer
 A deliverable you hand off — test steps, a report, a review comment, a handoff —
 must be **self-sufficient for whoever consumes it**. Resolve every input it needs

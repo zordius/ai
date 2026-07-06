@@ -146,6 +146,7 @@ These two questions determine: the *type* of automation (command / agent / skill
 **Absorbs**: {which intervention disappears}
 **Implementation**: {what to add or change, specifically}
 **Generalizable**: yes — {scope} / no — workflow-specific
+**Execute**: {fully-qualified command or skill to apply this modification — search project + plugin namespace; never leave implicit}
 
 ## Implementation Order
 1. {first} — {why first}
@@ -185,6 +186,7 @@ These two questions determine: the *type* of automation (command / agent / skill
 **Companion Updates**: {registries and docs that need updating when this component is added}
 **Gate** — Context: {in play?} | Probability: {near-zero / low / real} | Consequence: {advisory / meaningful / severe}
 **Verdict**: act / skip / defer — {one-sentence reason}
+**Execute**: {fully-qualified command or skill to apply this suggestion — search project + plugin namespace; never leave implicit}
 
 ### Medium Priority
 {…}

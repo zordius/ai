@@ -171,6 +171,7 @@ specific change implied by the principle.
 
 ### Orphan / Divergent Worklist (ranked)
 1. {artifact} — {Band A summary} → target section: {PRINCIPLES.md §N} [⚠️ entangled?]
+   → execute: `/zordius-ai:add-principle` (search project + plugin namespace; use fully-qualified name)
 
 *(If no orphaned / divergent findings: state explicitly — "No findings — all artifacts sourced+conformant." Never leave the worklist empty.)*
 
@@ -197,6 +198,7 @@ specific change implied by the principle.
    **Pain point**: {what breaks or degrades without it; which intent axis it underserves}
    **Gate** — Context: {in play?} | Probability: {near-zero / low / real} | Consequence: {advisory / meaningful / severe}
    **Verdict**: act / skip / defer — {one-sentence reason}
+   **Execute**: `Edit {artifact path}` at {location} — or the fully-qualified skill/command if one exists
 
 *(If no gaps: state explicitly — "No findings — all principles applied." Never leave the worklist empty.)*
 

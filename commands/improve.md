@@ -78,6 +78,7 @@ For each rule candidate, show:
 3. **Target Section** — where in the rule set it should be placed
 4. **Priority** — High / Medium / Low
 5. **Supersedes / conflicts** (if any) — which existing rule this contradicts or supersedes, with the proposed update/retire
+6. **Execute** — the specific command to apply this rule (search project + plugin namespace; use fully-qualified name — **e.g.** `/zordius-ai:add-principle` for PRINCIPLES.md additions, `Edit {path}` for project rule files)
 
 If a candidate was flagged **"hook/guard, not prose"**, present it separately as a
 **guard candidate** — the recurring failure it targets + why a prose rule is

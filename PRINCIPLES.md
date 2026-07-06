@@ -190,6 +190,27 @@ already-covered command variants after it denies them correctly every time);
 once enforcement exists, prose was never the bottleneck, so extending it adds
 reading weight with no marginal safety gain.
 
+### [rule] Desperation-case documentation is noise, not safety
+Before adding a prose rule to any artifact corpus, ask: *"Under what conditions
+would this rule be violated?"* If the answer is *"only when the agent has no
+viable forward path"* — the desperate-agent case — documentation will not help:
+an agent in that state generates workarounds, composes novel paths, and asks for
+human approval rather than consulting a written rule. The rule adds the
+appearance of coverage without adding actual safety.
+
+The correct fix for this failure class is two-part: (1) make the **normal path
+reliable** enough that the desperate case is rare (**e.g.** a working hook that
+intercepts the failure mode and returns a clear recovery pointer); (2) use
+**structural enforcement** (a hook, a harness deny-rule, a capability boundary)
+for the residual — not more prose. When structural enforcement also has a ceiling
+(the agent composes an alternate path and prompts for approval), that is the
+human-intervention boundary — document that explicitly rather than adding another
+prose rule.
+
+*Distinct from "Recurrence despite guidance signals enforcement" — that rule fires
+after recurrence is observed. This gate fires earlier: at rule-authoring time,
+before the rule enters the corpus.*
+
 ---
 
 ## 2. Naming taxonomy
@@ -764,6 +785,29 @@ Only **Band A** goes to source; generalize its concrete B/C touchpoints to
 abstracts cleanly once you name the B/C it was fused with and lift only the core.
 This is the decompile half of source-vs-compiled: Band A is the source; B and C
 are what a compile re-supplies for a given environment.
+
+### [rule] Classify by enforcement layer before classifying as behavioral rule
+When auditing artifacts for behavioral patterns — to lift them into source, apply
+source entries to them, or remove them — first identify who enforces the pattern.
+A pattern enforced by a layer the artifact cannot override (a runtime capability
+boundary, a harness hook, a platform constraint) makes the artifact a
+fact-recorder, not a rule-enforcer. **Frequency of documentation does not change
+this**: a structural constraint documented in many artifacts is still a constraint,
+not a behavioral choice.
+
+**Enforcement-layer test**: *If the rule were removed from the artifact, could the
+agent violate it?* If no — the enforcing layer makes it structurally impossible —
+the artifact documents reality; exclude the pattern from lift worklists and
+conformance gap lists. Tag it by its enforcement layer (**e.g.** `platform-fact`
+for runtime/capability constraints, `hook-covered` for harness hooks that
+intercept the failure mode and return a recovery pointer).
+
+Applies to both directions of a source↔compiled audit: the lift direction
+(Mode 1) excludes enforcement-layer patterns from the orphan list; the apply
+direction (Mode 2) excludes them from the conformance gap list. Check the
+enforcement layer before running the counterfactual-absence gate — a pattern that
+fails the enforcement-layer test is not a lift candidate regardless of whether
+an existing source entry covers it.
 
 ### [method] Generalise before publishing to a shared source
 After extracting Band A from an artifact, strip it further before committing

@@ -65,6 +65,10 @@ For each artifact, classify its content into three bands (judge Band A only):
   harness/runtime (e.g. a tool absent from the agent's `tools:` list, a runtime constraint),
   not a behavioral choice the model could make. Excluded from the lift worklist; the artifact
   is documenting reality, not enforcing a rule.
+- **hook-covered** — the pattern is already intercepted by a harness hook that auto-handles
+  the case and tells the agent what to do (e.g. a PostToolUse hook that saves large MCP
+  responses to `scratch/` and returns a `Read(...)` pointer). The artifact is documenting
+  what the hook does; the hook is the enforcement mechanism. Excluded from the lift worklist.
 
 **Discipline:** only call something sourced/redundant if you can **name** the covering entry
 ("vaguely similar" ≠ covered). Apply the **counterfactual-absence gate** — if removing a
@@ -76,6 +80,13 @@ from the artifact, could the model violate it?"* If no (the harness makes it str
 impossible), tag it `platform-fact` and exclude it from the lift worklist. A rule repeated
 across many artifacts can still be a platform fact — frequency of documentation ≠ behavioral
 rule.
+
+**Hook-covered gate** — before calling something orphaned, check whether a hook already
+intercepts the pattern at the harness level and provides the fix inline (e.g. the denial
+message of a PreToolUse hook, or a PostToolUse hook that rewrites the response). If yes,
+tag it `hook-covered` and exclude it from the lift worklist — the hook is the mechanism, not
+the doc. Check `.claude/hooks/` (or equivalent) before concluding a repeated pattern is
+undocumented.
 
 ### Mode 1 output
 
@@ -153,7 +164,7 @@ specific change implied by the principle.
 ### Findings
 | Artifact | Verdict | Notes |
 |---|---|---|
-| {name} | orphaned / divergent / borderline / sourced / pure-glue / platform-fact | {one line} |
+| {name} | orphaned / divergent / borderline / sourced / pure-glue / platform-fact / hook-covered | {one line} |
 
 **Counts**: {orphaned} orphaned, {divergent} divergent, {borderline} borderline,
 {sourced} sourced+conformant, {glue} pure-glue / {denominator} auditable

@@ -985,6 +985,27 @@ Before porting:
 An unaudited port silently inherits the origin's assumptions; failures appear
 as confusing misbehavior rather than a clear "this assumption doesn't hold."
 
+### [method] Measurement contract before porting
+Before applying a ported method in a new domain, establish what "working"
+looks like there:
+
+1. **Name the target signals** — identify 2–4 observable behaviors in the
+   target domain that the method is intended to improve. These may differ
+   from the origin's signals — derive them from the method's stated purpose,
+   not from what was measured in the origin.
+2. **Involve the domain owner** — draft candidate signals, then validate with
+   a domain expert; they know what meaningful change looks like in their context.
+3. **Baseline before applying** — record the current state of each signal
+   before the method is introduced; a measurement taken after the fact can't
+   serve as a baseline.
+4. **Compare after application** — once the method has run for a meaningful
+   period, compare against baseline; movement in the expected direction is
+   evidence the method is working; no movement is a signal to investigate.
+
+A method applied without a measurement contract can fail silently — the domain
+looks unchanged, but so does a method that was never applied. The contract makes
+"it's working" a verifiable claim rather than an assumption.
+
 ### [rule] A lesson earns its source slot only if its absence would bite
 Before adding a distilled lesson to the source, run a **counterfactual-absence
 test**: with the rest of the corpus in place, imagine the lesson gone and ask what

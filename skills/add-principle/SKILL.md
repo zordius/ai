@@ -79,12 +79,40 @@ discipline:
 - **Lifecycle-axis naming / trigger-phrase pointers** — if extending the naming
   taxonomy or adding a consulted-doc rule, follow those conventions.
 
-Then apply with `Edit`, anchored on stable surrounding text.
+Show the draft to the user. Do not apply the Edit yet — proceed to Step 3c then Step 3b.
+
+## Step 3c — challenger pass
+
+Before applying the Edit, run these ten checks and surface any findings to the user.
+The user decides whether to revise, proceed, or stop.
+
+1. **Reliability** — does the method have steps that can fail silently? Are there
+   unstated prerequisites? Flag any.
+2. **Delta value** — confirm counterfactual-absence gate passed (Step 3). No further
+   action if it did.
+3. **Reversibility** — will removing this entry later break any `[derives]:` reference?
+   If yes, surface this. (No derives pointing at it yet = safe to remove.)
+4. **Automation applicability** — apply `Evaluate an observed task for automation
+   potential`: what is the irreducible human judgment component? Is context-specificity
+   parameterizable? Name the automation type (command / agent / skill / hook / rule).
+5. **Agent capability** — for each step in a `[method]`, can an agent execute it with
+   current tools? Flag any step that assumes a tool or MCP that may not be available.
+6. **Source relationship** — confirm dedup + conflict check passed (Step 3). No further
+   action if it did.
+7. **Type marker correctness** — verify the marker matches the content:
+   `[rule]`: behavioral directive? `[method]`: each step produces visible output?
+   `[taxonomy]`: categories enumerable and mutually exhaustive? Flag a mismatch.
+8. **Necessity axis** — is this already structurally enforced by a hook, script, or
+   permission rule? If yes, a prose rule is redundant; surface this.
+9. **Abstraction completeness** — scan for org-specific names, ticket IDs, internal
+   URLs, or instance-specific details that weren't abstracted. Flag any found.
+10. **Recurrence check** — search for closely-related entries. If a similar rule
+    already exists but isn't being followed, more prose won't fix it — enforcement
+    is the correct response; flag this.
 
 ## Step 3b — derives-from annotation
 
-After the type marker is confirmed and before applying the edit, determine which
-source slug(s) this entry derives from:
+After the challenger pass, determine which source slug(s) this entry derives from:
 
 1. List valid slugs: `grep '^\[slug\]:' <root>/PRINCIPLES.md`
 2. Pick the slug whose principle this entry most directly specializes or applies.
@@ -96,6 +124,8 @@ source slug(s) this entry derives from:
 5. If this is a genuinely new root (no existing principle it derives from),
    **omit** the `[derives]:` line entirely and instead add `[slug]: new-slug` to
    the slug table — confirm with the user before doing so; new roots are rare.
+
+Then apply with `Edit`, anchored on stable surrounding text.
 
 ## Step 4 — show the diff and validate
 

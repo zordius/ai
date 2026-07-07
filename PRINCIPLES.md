@@ -969,10 +969,12 @@ Before porting:
 1. **Enumerate structural assumptions** — what must exist in the target domain
    for this method to work? (**e.g.** a source/compiled separation, a version
    control system, a human approval gate, a specific lifecycle stage)
-2. **Enumerate vocabulary assumptions** — which terms carry domain-specific
-   meanings that may collide in the target? (**e.g.** "tier", "gate", "band",
-   "rule" each has precise meaning in the origin; the target domain may use
-   the same word differently)
+2. **Enumerate vocabulary assumptions** — cross-check in both directions:
+   which of the origin's terms carry meanings that may collide in the target
+   (**e.g.** "tier", "gate", "band", "rule" each has precise meaning in the
+   origin; the target domain may use the same word differently), AND which
+   terms the target domain already uses that may be overloaded by introducing
+   origin terminology.
 3. **Document as a "must verify" checklist** — for each assumption, state
    what to check in the target domain before applying the method. This
    becomes the porting pre-flight.

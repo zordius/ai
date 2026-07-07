@@ -247,6 +247,19 @@ already-covered command variants after it denies them correctly every time);
 once enforcement exists, prose was never the bottleneck, so extending it adds
 reading weight with no marginal safety gain.
 
+### [rule] Don't bypass irreversible-action guards on transient tool failure
+[derives]: fail-closed
+When a signing, authentication, or integrity-check step guarding an irreversible
+action fails non-fatally (hangs, errors, or times out), surface the failure and a
+concrete recovery path — never silently skip or bypass the guard (e.g. with a
+`--no-verify` or `--no-sign` flag). The action's staged state typically survives
+the failure, so recovery is possible without restarting. Only retry after the
+underlying tool state is restored.
+
+**e.g.** If a gpg-signed commit hangs on signing, don't pass `--no-gpg-sign`;
+ask the user to restart gpg-agent (`gpgconf --launch gpg-agent`), then retry
+— the staged changes are still there.
+
 ### [rule] Desperation-case documentation is noise, not safety
 [derives]: scope-discipline
 Before adding a prose rule to any artifact corpus, ask: *"Under what conditions

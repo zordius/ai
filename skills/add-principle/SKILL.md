@@ -110,6 +110,11 @@ The user decides whether to revise, proceed, or stop.
     already exists but isn't being followed, more prose won't fix it — enforcement
     is the correct response; flag this.
 
+**Gate**: if any check produced a finding, present all findings and **stop** —
+wait for the user's explicit direction (revise / proceed anyway / abort) before
+continuing to Step 3b. Do not proceed silently past a finding.
+If all ten checks pass with no findings, proceed to Step 3b immediately.
+
 ## Step 3b — derives-from annotation
 
 After the challenger pass, determine which source slug(s) this entry derives from:

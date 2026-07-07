@@ -394,6 +394,25 @@ Run independent safety checks in parallel before commit (secret scanner,
 gitignore hygiene, lint). Stop only on a hard BLOCK (e.g. a leaked
 credential). Warnings can be reported and continued past with user consent.
 
+### [method] Multi-check challenger gate before source mutation
+[derives]: fail-closed, scope-discipline
+在對高風險 artifact（共用 source、schema、rule set）套用 edit 之前，執行 N 個
+獨立 check——每個 check 從不同維度審查提案的變更（可靠性、差異價值、可回復性、
+型別正確性、必要性、來源關係、抽象完整性等）。先收集全部 findings，再一次性浮現。
+
+**Gate**：任何 check 產生 finding，立即 hard-stop；將全部 findings 一併浮現給
+決策者；對每個 finding 要求明確指示（修改 / 照樣繼續 / 放棄）後才繼續。不得靜
+默跳過任何 finding。全部 check 通過時，立即繼續執行——沒有需要解決的事就不要多
+餘暫停。
+
+與 `[method] Parallel pre-commit scanners` 不同（後者在 *commit* 前觸發；檢查的
+是 secrets 與 hygiene，而非內容品質）。兩者可組合使用：本 gate 在 edit 套用前
+觸發；pre-commit scanners 在 commit 時觸發。
+
+**e.g.** 在向共用 rule set 新增條目前，平行執行可靠性、counterfactual-absence、
+可回復性、型別標記正確性、必要性、dedup 等 check；任何一個 check 標記 finding
+即停止；將全部 findings 浮現給使用者，確認後再 edit。
+
 ### [method] Conventional commit + co-author footer
 [derives]: authority-layering
 Generated commits follow [Conventional Commits 1.0](https://www.conventionalcommits.org/),

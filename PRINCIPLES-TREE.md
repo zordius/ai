@@ -30,6 +30,7 @@ that references it — run `bin/validate-derives.sh` to verify.
 |---|---|
 | [rule] Instruction–data separation | `fact-discipline`, `fail-closed` |
 | [method] AI system health audit | `coverage-gap-analysis`, `source-compiled` |
+| [method] Multi-check challenger gate before source mutation | `fail-closed`, `scope-discipline` |
 
 ---
 
@@ -78,14 +79,17 @@ To add intermediate nodes, add the entry's slug to the `[slug]:` table in
 - [method] Extend vs. new: add a mode or build a component
 - [method] Broad-then-narrow search under a rate limit
 - [method] Evaluate an observed task for automation potential
+- [method] Multi-check challenger gate before source mutation *(fan-in: also `fail-closed`)*
 - [taxonomy] Six-type human-intervention taxonomy
 
 ### `fail-closed`
 - [rule] Prompt-tainting compound avoidance
 - [rule] Recurrence despite guidance signals enforcement, not more prose
+- [rule] Don't bypass irreversible-action guards on transient tool failure
 - [rule] Self-locating, least-privilege tooling
 - [rule] Instruction–data separation *(fan-in: also `fact-discipline`)*
 - [method] Parallel pre-commit scanners
+- [method] Multi-check challenger gate before source mutation *(fan-in: also `scope-discipline`)*
 - [method] Setup-script-as-bootstrap
 - [method] Scoped secret storage (minimize a secret's blast radius)
 - [method] Structural isolation in a shared namespace

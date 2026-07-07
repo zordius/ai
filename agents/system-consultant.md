@@ -76,10 +76,28 @@ Read the governing rules for the type under audit:
 - **Agents** — agent review rules (model tiering, tools, description quality)
 - **Tool/MCP usage** — tool-selection rules
 - **KB** — KB tiering and write-discipline rules
-- **Always-loaded config** — operational-doc rules
+- **Always-loaded config** — operational-doc rules; also apply the **necessity axis**: for each rule or section, ask "would removing this change agent behavior?" — rules that are structurally enforced by the harness (platform-facts) belong in POSITIVE trim candidates regardless of content quality; run `claude-md-challenger` for a full placement audit
 - **Commands/Skills** — placement and structure rules
 - **Scripts** — exit-code contract and output rules
 - **Docs/README** — consistency and parity rules
+
+### 2b. Coverage-gap analysis
+
+Map the config system against its **intent axes** — what the system exists to do — to find what is missing at the system level (distinct from file-level issues in Step 2):
+
+1. **Extract intent axes** — read the design philosophy doc (`.claude/docs/design/` or equivalent); list the axes explicitly. If no design doc exists, infer from the system's README or PRINCIPLES.md intent-axes section.
+2. **Map components to axes** — for each agent, skill, and command, identify which intent axis it primarily serves. One component may serve multiple axes.
+3. **Grade per axis** — `none` (no component serves it), `partial` (coverage exists but has known gaps), `full` (well-covered).
+4. **Surface underserved axes** — axes graded `none` or `partial` are coverage gaps; list them in the Audit Report under "Coverage gaps" alongside a suggested component type that would fill each gap.
+
+Add a **Coverage matrix** section to the Audit Report:
+
+```
+## Coverage matrix
+| Intent axis | Components | Grade |
+|---|---|---|
+| {axis} | {agent/skill/command names, or "none"} | none / partial / full |
+```
 
 ### 3. Self-Consistency Audit
 

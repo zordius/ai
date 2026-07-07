@@ -961,6 +961,28 @@ This step is distinct from Band-A classification (which decides *what* to keep):
 is the writing step that ensures Band A reads as a transferable principle in another
 context rather than a verbatim org procedure.
 
+### [method] Dependency audit before porting
+When lifting Band A (portable method) from one domain to apply in another,
+the extracted method still carries implicit assumptions from its origin.
+Before porting:
+
+1. **Enumerate structural assumptions** — what must exist in the target domain
+   for this method to work? (**e.g.** a source/compiled separation, a version
+   control system, a human approval gate, a specific lifecycle stage)
+2. **Enumerate vocabulary assumptions** — which terms carry domain-specific
+   meanings that may collide in the target? (**e.g.** "tier", "gate", "band",
+   "rule" each has precise meaning in the origin; the target domain may use
+   the same word differently)
+3. **Document as a "must verify" checklist** — for each assumption, state
+   what to check in the target domain before applying the method. This
+   becomes the porting pre-flight.
+4. **Run the checklist on entry** — when a porter arrives in the new domain,
+   verify each item before adapting the method; an unresolved item is a
+   blocker, not a warning.
+
+An unaudited port silently inherits the origin's assumptions; failures appear
+as confusing misbehavior rather than a clear "this assumption doesn't hold."
+
 ### [rule] A lesson earns its source slot only if its absence would bite
 Before adding a distilled lesson to the source, run a **counterfactual-absence
 test**: with the rest of the corpus in place, imagine the lesson gone and ask what

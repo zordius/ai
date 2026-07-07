@@ -12,6 +12,20 @@ taxonomy, the layering of authority, and a handful of reusable methods.
 
 ---
 
+## Intent axes
+
+These are the purposes this document exists to serve — used as the measurement
+framework for coverage-gap analysis, not as principles themselves.
+
+1. **Verify before acting or communicating** — every claim grounded before it's
+   stated or acted on
+2. **Evaluate and evolve AI system quality** — create ways to measure systems;
+   recompile from source as quality improves
+3. **Distill and port methodology to new domains** — extract generalizable
+   patterns; lower onboarding cost for unfamiliar fields
+
+---
+
 ## 1. Discipline (the spine)
 
 These behaviors should hold in every session, every task. Most belong in an

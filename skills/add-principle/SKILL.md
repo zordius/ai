@@ -119,7 +119,10 @@ If all ten checks pass with no findings, proceed to Step 3b immediately.
 
 After the challenger pass, determine which source slug(s) this entry derives from:
 
-1. List valid slugs: `grep '^\[slug\]:' <root>/PRINCIPLES.md`
+1. Read `<root>/PRINCIPLES-TREE.md` — it lists all root slugs, each root's
+   existing children, and the fan-in entries. Use it to identify the correct
+   parent and understand the pattern of existing children under each root.
+   Fallback if absent: `grep '^\[slug\]:' <root>/PRINCIPLES.md`.
 2. Pick the slug whose principle this entry most directly specializes or applies.
    For fan-in entries (two parents): `[derives]: slug1, slug2`.
 3. Include `[derives]: parent-slug` in the draft **immediately after the `###`
@@ -127,8 +130,9 @@ After the challenger pass, determine which source slug(s) this entry derives fro
 4. If the slug table is empty (Phase 1 not yet run), proceed without the
    annotation and note it as a follow-up.
 5. If this is a genuinely new root (no existing principle it derives from),
-   **omit** the `[derives]:` line entirely and instead add `[slug]: new-slug` to
-   the slug table — confirm with the user before doing so; new roots are rare.
+   **omit** the `[derives]:` line entirely, add `[slug]: new-slug` to the slug
+   table, and add a new section to `PRINCIPLES-TREE.md` — confirm with the user
+   before doing so; new roots are rare.
 
 Then apply with `Edit`, anchored on stable surrounding text.
 

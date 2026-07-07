@@ -153,7 +153,9 @@ Q10: [platform-enforced / not — one sentence; if yes, name the enforcement mec
 Classification: KEEP / SPLIT / POSITIVE / MIXED
 Reason: [one-sentence summary of the deciding factor(s)]
 [SPLIT only] Destination category: [operational how-to / rationale+design / governance+audit / task reference]
-[MIXED only] Parts: [list each sub-rule with its individual classification]
+[SPLIT only] Executable path: (1) Locate or create the destination doc in the category above. (2) Move the section body there under an appropriate heading. (3) Replace the CLAUDE.md section body with a one-line pointer: "For {trigger-word}, see {dest-doc} §{heading}." — the trigger word must survive in CLAUDE.md so the agent fires the lookup. Caller must confirm (1) before executing (2)–(3).
+[POSITIVE only] Executable path: (1) Confirm the external signal ({task context / platform enforcement}) is sufficient at runtime — an agent encountering the situation would reach the correct behavior without this section present. (2) Delete the section from CLAUDE.md; no stub pointer needed. (3) If Q10 was the deciding factor, consider archiving the platform-fact to a reference doc for audit purposes — it is correct but not load-bearing. Caller must verify (1) before executing (2).
+[MIXED only] Parts: [list each sub-rule with its individual classification and its executable path per the SPLIT/POSITIVE rules above]
 ```
 
 ## Rules

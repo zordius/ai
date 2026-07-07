@@ -26,6 +26,15 @@ framework for coverage-gap analysis, not as principles themselves.
 
 ---
 
+[slug]: fact-discipline
+[slug]: scope-discipline
+[slug]: fail-closed
+[slug]: authority-layering
+[slug]: gap-findings-gate
+[slug]: two-axis-review
+[slug]: coverage-gap-analysis
+[slug]: source-compiled
+
 ## 1. Discipline (the spine)
 
 These behaviors should hold in every session, every task. Most belong in an

@@ -785,6 +785,23 @@ Prerequisite: this method requires a reproducible benchmark task and a stored
 baseline. Without both, it is a manual audit heuristic — don't treat a single
 observation as a confirmed causal finding.
 
+### [method] AI system health audit
+To assess the overall health of an AI system, compose four checks into a
+single audit pass and record the result with a date:
+
+1. **Intent-axis coverage** — run coverage-gap analysis against the system's
+   intent axes; grade each axis none / partial / full; record build candidates.
+2. **Source→artifact conformance** — for each compiled artifact, flag source
+   entries not reflected in it (source-audit, Mode 1).
+3. **Internal consistency** — run self-consistency audit across the full source;
+   flag contradictions and stale supersessions.
+4. **Artifact staleness** — for each artifact, check whether source has changed
+   since it was last recompiled; flag artifacts with unincorporated changes.
+
+After any source change or recompile, re-run the affected checks and compare
+against the prior record. A deteriorating score on any dimension is a signal
+to investigate before adding more content.
+
 ### [rule] Dedup and conflict check before adding to a rule set
 When adding a candidate to any rule set, run two checks — not just one.
 **Dedup**: does an existing entry already cover this? If so, drop or merge.

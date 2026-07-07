@@ -649,6 +649,11 @@ the build candidates**, ranked by value-over-effort. This grounds every proposal
 in a stated purpose (so it can't be a solution looking for a problem) and surfaces
 redundancy — two components on the same axis — at the same time.
 
+If intent axes aren't documented, an agent can draft them by reading existing
+components — but these are **inferred hypotheses**, not established axes.
+Validate them with a domain owner before building the coverage matrix; a matrix
+built on unconfirmed axes measures coverage of guesswork, not actual intent.
+
 ### [taxonomy] Three-signal filter: agent-design-relevant source entries
 Not every entry in a source doc governs how agents, skills, or commands should be built. Before checking artifact conformance, filter to entries that carry design implications. Three signal categories:
 

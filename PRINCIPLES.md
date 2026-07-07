@@ -668,6 +668,25 @@ components — but these are **inferred hypotheses**, not established axes.
 Validate them with a domain owner before building the coverage matrix; a matrix
 built on unconfirmed axes measures coverage of guesswork, not actual intent.
 
+### [method] Intent-axis discovery for a new domain
+Before running coverage-gap analysis on a new system, surface its intent axes:
+
+1. **Agent first-pass** — read the system's existing components (docs, config,
+   naming, outputs) and infer candidate axes as `[TBC]` hypotheses. Aim for 4–7;
+   cite 2–3 components as evidence for each. Don't present these as established.
+2. **Domain owner reframe** — present the candidates to the domain owner; ask
+   them to correct, reframe, or replace in their own terms. Their language is
+   authoritative; the agent's inference is a starting point only.
+3. **Compress** — where two candidates point at the same underlying purpose,
+   merge them. Fewer axes with clear separation are better than many with overlap.
+4. **Confirm and record** — get explicit confirmation, then record the axes in a
+   stable location (**e.g.** the system's preamble). Recorded axes don't need
+   re-derivation in future sessions.
+
+The validation in Step 2 is what makes the coverage matrix meaningful — axes
+confirmed by the domain owner reflect actual intent; agent-inferred axes reflect
+what the system happens to look like.
+
 ### [taxonomy] Three-signal filter: agent-design-relevant source entries
 Not every entry in a source doc governs how agents, skills, or commands should be built. Before checking artifact conformance, filter to entries that carry design implications. Three signal categories:
 

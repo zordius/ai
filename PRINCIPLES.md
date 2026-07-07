@@ -724,6 +724,24 @@ When a human intervenes during or after a workflow, classify the intervention be
 
 Automatable types map to a specific fix location (pre-flight / step expansion / post-step / output format). Non-automatable types must be surfaced explicitly as "keep human" — never silently dropped. The classification also determines the human-gate shape: automatable → approve/reject a proposed change; non-automatable → make a judgment call.
 
+### [method] Behavioral signals as AI system quality proxies
+Subjective quality judgement ("is this agent good?") is not actionable. Measure
+quality through observable behavioral signals instead:
+
+- **Approval-prompt frequency** — how often the agent stops to ask; lower = better
+  automation of mechanical steps (cf. six-type human-intervention taxonomy)
+- **Failed-attempt rate** — retries, corrections, misread state before success;
+  lower = better context reading and fact discipline
+- **Tokens per goal** — total tokens consumed to reach a completed task; lower =
+  better tiered resolution and scope discipline
+- **Round-trips to completion** — clarifying loops and back-and-forths; lower =
+  better pre-flight reading and scope clarity
+
+Baseline before a source change; re-run the same task after recompiling the
+affected artifact. A drop in any signal is evidence the change worked. A
+regression — even after adding a new source entry — is a signal to investigate,
+not proof of improvement.
+
 ### [rule] Dedup and conflict check before adding to a rule set
 When adding a candidate to any rule set, run two checks — not just one.
 **Dedup**: does an existing entry already cover this? If so, drop or merge.

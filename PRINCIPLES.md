@@ -1029,6 +1029,27 @@ A method applied without a measurement contract can fail silently — the domain
 looks unchanged, but so does a method that was never applied. The contract makes
 "it's working" a verifiable claim rather than an assumption.
 
+### [method] Periodic re-audit of a ported method
+Once a method is in use in a new domain, re-run the dependency audit
+checklist periodically — the target domain drifts, and assumptions that
+held at porting time may no longer hold. Three triggers prompt a re-audit:
+
+1. **Time-based** — schedule a re-audit after a fixed operational period
+   (**e.g.** 6 months after initial porting); a backstop when event-based
+   triggers are hard to observe.
+2. **Event-based** — re-audit when the target domain undergoes a structural
+   change (new tool adopted, lifecycle redesigned, team reorganized); these
+   are the moments when structural assumptions are most likely to break.
+3. **Signal-based** — re-audit when measurement contract signals degrade
+   without an obvious cause; unexplained regression is a signal that an
+   assumption has silently become false.
+
+On re-audit: re-run dependency audit steps 1 and 2 (structural and vocabulary
+assumptions). For each assumption that no longer holds, either adapt the method
+or retire it from the domain. Update anchor points for any vocabulary that has
+drifted. If the method no longer serves the domain's intent axes, retire it
+rather than maintaining a broken port.
+
 ### [rule] A lesson earns its source slot only if its absence would bite
 Before adding a distilled lesson to the source, run a **counterfactual-absence
 test**: with the rest of the corpus in place, imagine the lesson gone and ask what

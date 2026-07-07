@@ -985,6 +985,29 @@ Before porting:
 An unaudited port silently inherits the origin's assumptions; failures appear
 as confusing misbehavior rather than a clear "this assumption doesn't hold."
 
+### [method] Vocabulary collision resolution during porting
+When dependency audit step 2 flags a term collision, resolve each one
+explicitly before proceeding — an unresolved collision is a blocker.
+Four resolution options, in preference order:
+
+1. **Rename the import** — use a different word for the ported method's concept
+   in the target domain. Prefer this when the local term is established and
+   well-understood.
+2. **Rename the local term** — if the local usage is informal or recent, rename
+   it and adopt the ported term. Prefer this when the ported concept is more
+   precisely defined.
+3. **Qualify both** — add a qualifier to disambiguate (**e.g.** "source-tier" vs.
+   "visual-tier"). Use when both usages are entrenched and renaming either would
+   cause churn.
+4. **Explicit disambiguation note** — document that the same word covers two
+   distinct concepts in this context. Use as last resort; it requires active
+   reader awareness to avoid confusion.
+
+For each resolved collision, write an **anchor point** — one line stating:
+"In this domain, [term] means [X]; the origin's [term] is referred to as [Y]."
+Store it where the ported method lives. An undocumented resolution exists only
+in memory and will be re-discovered as confusion by the next person.
+
 ### [method] Measurement contract before porting
 Before applying a ported method in a new domain, establish what "working"
 looks like there:

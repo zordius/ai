@@ -19,6 +19,11 @@ Audit the gap between framework **source** (`PRINCIPLES.md`) and **compiled arti
 
 Default: run both. Either mode can be requested alone by naming it in the prompt.
 
+This skill is **Step 2** of the `AI system health audit` method (intent-axis coverage →
+**source↔artifact conformance** → internal consistency → artifact staleness). Run
+source-audit alone when the focus is source↔compiled gap; run the full health audit
+for a complete system health picture.
+
 ---
 
 ## Inputs
@@ -226,6 +231,11 @@ Both modes are **advisory**. Re-check each finding before acting:
 
   Act when probability is real AND consequence is meaningful. Record every skip with a reason —
   a silent skip is indistinguishable from an overlooked finding.
+
+After applying Mode 2 act-verdicts and recompiling the affected artifacts, run
+`Quality signal → source fix feedback loop` (PRINCIPLES §5) to verify the fix
+propagated — a recompiled artifact that doesn't improve the relevant behavioral
+signal means the source entry didn't take; fix the right layer before closing the gap.
 
 Entangled orphans still lift — the method core usually abstracts cleanly once the Band C wiring
 is generalized to **e.g.**; flag them so the decompile gets a manual pass, not a mechanical move.

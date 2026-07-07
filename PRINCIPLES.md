@@ -34,6 +34,7 @@ framework for coverage-gap analysis, not as principles themselves.
 [slug]: two-axis-review
 [slug]: coverage-gap-analysis
 [slug]: source-compiled
+<!-- ripple: renaming or merging a slug requires updating every [derives]: line that references it — run bin/validate-derives.sh to verify. -->
 
 ## 1. Discipline (the spine)
 

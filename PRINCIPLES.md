@@ -1133,6 +1133,31 @@ A method applied without a measurement contract can fail silently — the domain
 looks unchanged, but so does a method that was never applied. The contract makes
 "it's working" a verifiable claim rather than an assumption.
 
+### [method] Scoped adoption of a ported method
+[derives]: source-compiled
+When a domain is heterogeneous or the adoption risk is high, a ported method need not
+cover the entire domain at once — a subset with an explicit boundary is a principled
+adoption unit. Implicit scoping ("we're mostly using it") erodes over time; the boundary
+must be stated so any practitioner can decide whether a given piece of work is inside or
+outside the method's coverage.
+
+1. **Define the subset boundary** — name the scope explicitly (one team, one workflow
+   type, one product area). The test: can a practitioner decide in ≤5 seconds whether
+   a given task is in scope? If not, the boundary is too vague.
+2. **Re-run the fitness screen within scope** — structural requirements may differ
+   inside the subset from the full domain; confirm the subset actually satisfies the
+   method's non-negotiables (see "Pre-porting fitness screen").
+3. **Establish a boundary protocol** — state what happens when work crosses the scope
+   boundary: explicit exclusion ("out of scope, handled separately") or a decision
+   point ("crossing this boundary triggers an expansion discussion"). Document it;
+   ambiguous boundaries erode the scope.
+4. **Scope the measurement contract** — baseline and measure signals inside the subset
+   only; mixing scoped and unscoped work in the same measurement contaminates the
+   signal (see "Measurement contract before porting").
+5. **Define expansion criteria** — state in advance what evidence would justify
+   expanding to a larger subset or the full domain. Without this, scoped adoption
+   either stays scoped indefinitely or expands without evidence.
+
 ### [method] Periodic re-audit of a ported method
 [derives]: source-compiled
 Once a method is in use in a new domain, re-run the dependency audit

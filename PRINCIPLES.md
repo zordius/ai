@@ -1062,6 +1062,43 @@ Pass all three screens → proceed to dependency audit.
 Fail any screen → retire the candidate; record why, so the same conclusion
 isn't re-derived next time.
 
+### [method] Bootstrapping structural prerequisites before porting
+[derives]: source-compiled
+When a pre-porting fitness screen fails because a structural prerequisite is absent —
+not because the domain is fundamentally incompatible, but because the prerequisite
+hasn't been established yet — the correct response is not to abandon the port. Bootstrap
+the missing foundation first, then re-enter the porting sequence.
+
+Distinguish two fitness-screen failure modes before bootstrapping:
+- **Absent but adoptable** — the prerequisite doesn't exist but the domain could
+  establish it (**e.g.** no version control → can introduce one; no feedback loop →
+  can establish a periodic conformance check).
+- **Fundamentally incompatible** — the domain's nature makes the prerequisite
+  impossible or meaningless (**e.g.** a real-time transactional system that cannot
+  have a source/compiled separation by design).
+
+Only the first case warrants bootstrapping.
+
+1. **Identify the minimal prerequisite set** — from the fitness screen's failed
+   checks, list only what the method genuinely cannot function without. Resist adding
+   nice-to-have infrastructure; over-building before the method runs creates
+   maintenance cost with no payoff.
+2. **Sequence by dependency** — some prerequisites depend on others (**e.g.** version
+   control before review gates; context persistence before source/compiled separation
+   is meaningful). Order by dependency, not by perceived importance.
+3. **Establish each prerequisite and verify it is genuinely in use** — nominal
+   presence does not satisfy the requirement (a version control system no one commits
+   to is not a met prerequisite). Establish one at a time; simultaneous installation
+   makes failures harder to diagnose.
+4. **Re-run the fitness screen after each step** — confirm the prerequisite is
+   genuinely satisfied before proceeding to the next.
+5. **Stop when the fitness screen passes** — do not continue adding infrastructure
+   beyond what the fitness screen requires.
+
+Re-evaluate cost: after identifying the bootstrap steps, add their cost to the
+original porting cost estimate (fitness screen Step 3) and re-decide whether the
+combined effort still justifies the port.
+
 ### [method] Dependency audit before porting
 [derives]: source-compiled
 When lifting Band A (portable method) from one domain to apply in another,

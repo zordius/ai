@@ -756,6 +756,35 @@ affected artifact. A drop in any signal is evidence the change worked. A
 regression — even after adding a new source entry — is a signal to investigate,
 not proof of improvement.
 
+### [method] Quality signal → source fix feedback loop
+When a behavioral signal regresses after a source change and recompile, run a
+four-step diagnostic:
+
+1. **Identify the regressed signal** — which metric moved: approval-prompt
+   frequency, failed-attempt rate, tokens per goal, or round-trips to completion?
+
+2. **Map signal to likely source cause:**
+
+   | Signal ↑ | Likely source cause |
+   |---|---|
+   | Approval-prompt frequency | Pre-flight read missing; gate too broad; mechanical confirmation not absorbed into step |
+   | Failed-attempt rate | Fact discipline not applied; proxy mistaken for resolved value; instruction ambiguous |
+   | Tokens per goal | Tiered resolution skipped; scope creep; output over-elaboration |
+   | Round-trips to completion | Pre-flight context read missing; output format unclear; handoff structure absent |
+
+3. **Read the compiled artifact** — confirm the source entry is actually reflected
+   there. A regression is often in the artifact (source not picked up on recompile),
+   not a missing source entry. Fix the right layer.
+
+4. **Apply the fix and re-verify** — lift to source if source is under-specified;
+   re-generate the artifact if source is correct but didn't propagate. Re-run the
+   baseline task; confirm the signal returns to baseline before treating the
+   regression as resolved.
+
+Prerequisite: this method requires a reproducible benchmark task and a stored
+baseline. Without both, it is a manual audit heuristic — don't treat a single
+observation as a confirmed causal finding.
+
 ### [rule] Dedup and conflict check before adding to a rule set
 When adding a candidate to any rule set, run two checks — not just one.
 **Dedup**: does an existing entry already cover this? If so, drop or merge.

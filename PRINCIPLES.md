@@ -961,6 +961,27 @@ This step is distinct from Band-A classification (which decides *what* to keep):
 is the writing step that ensures Band A reads as a transferable principle in another
 context rather than a verbatim org procedure.
 
+### [method] Pre-porting fitness screen
+Before committing to dependency audit and the full porting sequence, run a
+quick fitness screen to avoid investing effort in an unviable port:
+
+1. **List the method's non-negotiable structural requirements** — the 1–3
+   features the target domain MUST have for the method to function at all
+   (**e.g.** a source/compiled separation, a persistent context layer, a version
+   control system). Derive these from the method's purpose, not its mechanism.
+2. **Check for deal-breakers** — does the target domain have these features,
+   or could it reasonably adopt them? If a non-negotiable is absent and
+   adoption is implausible, stop: this method is not a porting candidate for
+   this domain at this time.
+3. **Rough cost vs. value estimate** — if no deal-breakers, estimate the
+   adaptation cost (steps that need reworking, vocabulary that needs
+   translation) against the expected benefit in the new domain. If cost
+   clearly exceeds value, stop.
+
+Pass all three screens → proceed to dependency audit.
+Fail any screen → retire the candidate; record why, so the same conclusion
+isn't re-derived next time.
+
 ### [method] Dependency audit before porting
 When lifting Band A (portable method) from one domain to apply in another,
 the extracted method still carries implicit assumptions from its origin.

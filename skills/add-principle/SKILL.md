@@ -81,13 +81,39 @@ discipline:
 
 Then apply with `Edit`, anchored on stable surrounding text.
 
-## Step 4 — show the diff
+## Step 3b — derives-from annotation
+
+After the type marker is confirmed and before applying the edit, determine which
+source slug(s) this entry derives from:
+
+1. List valid slugs: `grep '^\[slug\]:' <root>/PRINCIPLES.md`
+2. Pick the slug whose principle this entry most directly specializes or applies.
+   For fan-in entries (two parents): `[derives]: slug1, slug2`.
+3. Include `[derives]: parent-slug` in the draft **immediately after the `###`
+   heading line** — before any body text.
+4. If the slug table is empty (Phase 1 not yet run), proceed without the
+   annotation and note it as a follow-up.
+5. If this is a genuinely new root (no existing principle it derives from),
+   **omit** the `[derives]:` line entirely and instead add `[slug]: new-slug` to
+   the slug table — confirm with the user before doing so; new roots are rare.
+
+## Step 4 — show the diff and validate
 
 ```bash
 git -C <root> --no-pager diff PRINCIPLES.md
 ```
 
-Let the user review before commit.
+Then validate derives annotations:
+
+```bash
+<root>/bin/validate-derives.sh <root>/PRINCIPLES.md
+```
+
+Exit 0 = all slug references resolve. Exit 2 = slug table not yet built (Phase 1
+of the source-tree migration pending — proceed, note the gap). Exit 1 = broken
+slug reference — fix before committing.
+
+Let the user review diff and validation result before commit.
 
 ## Step 5 — commit & push
 

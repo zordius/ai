@@ -63,6 +63,11 @@ with both sides rather than resolving it silently. Keep *what's missing*
 (completeness / not-covered) separate from *what doesn't line up* (consistency /
 scope-creep).
 
+Each finding must include a **concrete next action** — the artifact, section, and
+what to add, reconcile, or ask. The reader should not have to derive the resolution
+path.
+Format: `→ {verb} {artifact} §{section}: {what}` or `→ Ask {owner}: {question}`.
+
 If no findings: state explicitly — "No findings: [two-axis: all sections present,
 all decisions consistent] / [bidirectional: all requirements covered, no
 scope-creep candidates]." Never leave the output empty — an empty output is

@@ -35,6 +35,25 @@ installed/cache copy — **stop**: tell the user to relaunch with
 `claude --plugin-dir <their-zordius/ai clone>`; never push from a cache copy. Use
 the printed root as `<root>` below.
 
+**Resume detection**: after confirming author mode, check for an in-progress
+session:
+
+```bash
+git -C <root> --no-pager diff PRINCIPLES.md
+```
+
+If this prints output (uncommitted changes to PRINCIPLES.md), the previous run
+was interrupted after the Edit — show the diff and ask the user which step to
+resume from:
+- **Step 3c** — challenger pass not yet run (draft applied but not checked)
+- **Step 3b** — derives annotation not yet added
+- **Step 4** — diff shown but not yet validated / committed
+- **Step 5** — commit ready but not yet pushed
+
+Do **not** re-run Step 1 (pull) when resuming — stale changes may be overwritten.
+Only run `git pull --rebase` if the user explicitly asks to, or if the diff shows
+no local changes (fresh start).
+
 ## Step 1 — pull latest
 
 ```bash

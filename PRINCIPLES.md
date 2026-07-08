@@ -570,6 +570,25 @@ isn't committed to its own recommendation), gives the caller a review gate
 before anything changes, and makes the adviser reusable across callers with
 different execution contexts.
 
+### [rule] Advisory outputs that propose components must carry resolved companion updates
+[derives]: scope-discipline, fact-discipline
+When an advisory agent proposes adding a named component (an agent, skill,
+command, or equivalent artifact tracked in an index), its output must include
+a **resolved companion-updates field** — not a placeholder — listing every
+registry and doc by concrete name and section. The agent reads the system's
+index files (README, registry docs, memory index, or equivalent) during its
+analysis step and populates the field from those reads.
+
+Leaving the field as "check the registries" or "update relevant docs" pushes
+homework onto the caller: they receive a typed suggestion but must independently
+discover which registries apply before they can act. A companion-updates field
+populated with concrete targets makes the suggestion self-sufficient.
+
+Distinct from `[rule] Ripple check on registry-listed components` — that rule
+governs the actor performing a ripple check; this rule governs what an
+**advisory output** must carry so the actor can perform it without re-deriving
+the target list.
+
 ### [method] Tiered resolution: cache first, then docs, then search
 [derives]: fact-discipline
 When looking up information, resolve in ascending cost order: **cached KB →

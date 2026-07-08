@@ -29,6 +29,7 @@ that references it — run `bin/validate-derives.sh` to verify.
 | Entry | Derives from |
 |---|---|
 | [rule] Instruction–data separation | `fact-discipline`, `fail-closed` |
+| [rule] Advisory outputs that propose components must carry resolved companion updates | `scope-discipline`, `fact-discipline` |
 | [method] AI system health audit | `coverage-gap-analysis`, `source-compiled` |
 | [method] Multi-check challenger gate before source mutation | `fail-closed`, `scope-discipline` |
 
@@ -52,6 +53,7 @@ To add intermediate nodes, add the entry's slug to the `[slug]:` table in
 - [rule] Verify the real resolved value, not a proxy
 - [rule] Ephemeral-source discipline
 - [rule] Clickable links in deliverables
+- [rule] Advisory outputs that propose components must carry resolved companion updates *(fan-in: also `scope-discipline`)*
 - [rule] Pre-flight read before mutating a configured system
 - [rule] Tests as verified knowledge
 - [rule] Resume detection
@@ -74,6 +76,7 @@ To add intermediate nodes, add the entry's slug to the `[slug]:` table in
 - [rule] Surface before applying delegated results
 - [rule] Ripple check on registry-listed components
 - [rule] Advisory role boundary for analysis agents
+- [rule] Advisory outputs that propose components must carry resolved companion updates *(fan-in: also `fact-discipline`)*
 - [rule] Null fix is a first-class diagnostic outcome
 - [method] Three-bucket git gather
 - [method] Extend vs. new: add a mode or build a component

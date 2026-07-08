@@ -112,7 +112,7 @@ If all four favour extending, frame as a mode or branch of the existing componen
 For each opportunity, note:
 - What pain point does it solve?
 - Extend an existing component, or build new? (from the four signals above)
-- Does it fit agent / skill / command?
+- **Type-taxonomy fit** (mandatory gate before naming a type) — apply the three-type test: **agent** if it needs tools or multi-step reasoning; **skill** if it's a checklist or reference loaded on demand; **command** if it orchestrates other agents with no logic of its own. State which test it passes in the suggestion.
 - What tools would it need?
 - High / Medium / Low priority?
 - **Companion updates** — which registries list components of this type? Note every registry and doc that needs updating when the component is added.
@@ -191,7 +191,7 @@ These two questions determine: the *type* of automation (command / agent / skill
 
 ### High Priority
 ### {Automation Name}
-**Type**: Agent / Skill / Command
+**Type**: Agent / Skill / Command — {which three-type test it passes}
 **Intent Axis**: {axis}
 **Pain Point**: {what problem}
 **Description**: {what it does}

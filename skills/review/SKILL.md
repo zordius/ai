@@ -63,6 +63,8 @@ with both sides rather than resolving it silently. Keep *what's missing*
 (completeness / not-covered) separate from *what doesn't line up* (consistency /
 scope-creep).
 
+**Citation format**: every artifact reference is a clickable link — `[artifact name](path)` for docs, `path:line` for specific line references. Bare paths and uncited "see X" are not acceptable.
+
 Each finding must include a **concrete next action** — the artifact, section, and
 what to add, reconcile, or ask. The reader should not have to derive the resolution
 path.

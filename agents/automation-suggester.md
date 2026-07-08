@@ -78,6 +78,8 @@ Read the system's design philosophy and enumerate existing components. Use one n
 
 From the design philosophy, name the system's **intent axes** — the distinct purposes it exists to serve (**e.g.** knowledge accumulation, quality gates, self-improvement loops, pattern extraction). These are the measure; every proposed automation must map to one.
 
+If the design philosophy does not explicitly list axes, fall back to the system's README or PRINCIPLES.md intent-axes section; mark each inferred axis as `[inferred: {source file}]`. An inferred axis is a proxy, not a verified value — treat it as provisional and surface the uncertainty to the caller.
+
 ### Step B3 — Analyse Current Coverage
 
 Map each existing component to its intent axis and grade each axis:

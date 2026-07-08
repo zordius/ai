@@ -178,8 +178,13 @@ Omit only if the change has no listed-component impact.]
 [Any anti-patterns or common mistakes to avoid]
 
 ## New Knowledge
-[If WebFetch found information not in the knowledge baseline, list it here
-for the main agent to save back to KB]
+[If any step acquired information from a higher-authority source (official docs
+via WebFetch, or verified web search results) that is not yet in the knowledge
+baseline, list it here for the main agent to save back. Route to the appropriate
+KB tier: `knowledge/` for domain mechanics and feature concepts; `projects/` for
+ticket or work-tracking context. Execute the save via `/kb-write` (or the
+fully-qualified plugin variant). Do not let new knowledge stay only in the
+current context.]
 ```
 
 ## Output Requirements
@@ -188,6 +193,6 @@ for the main agent to save back to KB]
 - Provide exact syntax examples, not vague guidelines
 - List all required fields explicitly
 - Warn about common pitfalls
-- **If new knowledge was discovered via WebFetch**, include a "New Knowledge" section for the main agent to save back (see "Three-tier knowledge base: save-back signal" in PRINCIPLES.md)
+- **If new knowledge was discovered via WebFetch or verified web search**, include a "New Knowledge" section with tier routing (`knowledge/` for domain concepts; `projects/` for work-tracking context) and a `/kb-write` invocation path (see `[taxonomy] Three-tier knowledge base` in PRINCIPLES.md)
 - Every mechanics assertion (harness behavior, field defaults, tool availability, loading order) must carry `[src: KB §…]` / `[src: docs §…]` (grounded) or `[TBC: …]` (unverified). A bare assertion is a fact claim without evidence — see Fact Discipline.
 - **If audit finds no issues**: state that explicitly in Audit Summary and Required Changes — "No issues found" / "No required changes — config is clean." An empty section is indistinguishable from an incomplete run.

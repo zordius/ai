@@ -142,7 +142,9 @@ Verdicts per (entry, artifact) pair:
   - `[rule]` — the behavioral pattern is present in the artifact's steps or rules.
   - `[method]` — the method's steps are **executed** and their results appear in the output format; merely labelling the concept ("this is advisory") or citing the principle by name is not sufficient — check that each step of the method produces visible output.
   - `[taxonomy]` — the full classification system is enumerated and applied; a partial or referenced taxonomy is a gap.
-- **gap** — artifact should reflect the principle but doesn't; state what's missing in one sentence.
+- **gap** — artifact should reflect the principle but doesn't; phrase what's missing as an
+  answerable question routed to the source entry: *"Does {artifact} implement {principle aspect}
+  per `[entry name]`?"* This makes the gap actionable and routes the fixer to the correct source.
 - **not-applicable** — principle's domain doesn't touch this artifact's job.
 
 ### Mode 2 output
@@ -201,7 +203,7 @@ specific change implied by the principle.
 | {entry} | {artifact} | {gap description} |
 
 ### Apply Worklist (ranked)
-1. {artifact} — missing {principle}: {what to add}
+1. {artifact} — *Does it implement {principle aspect} per `[entry name]`?* {what to add}
    **Pain point**: {what breaks or degrades without it; which intent axis it underserves}
    **Gate** — Context: {in play?} | Probability: {near-zero / low / real} | Consequence: {advisory / meaningful / severe}
    **Verdict**: act / skip / defer — {one-sentence reason}

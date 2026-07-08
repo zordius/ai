@@ -109,11 +109,23 @@ Audit the governing rules themselves for internal contradiction — a self-confl
 
 Report findings in the "Rule Conflicts" subsection below.
 
+### 3b. Conformance & Staleness
+
+Complete the remaining two checks of the `[method] AI system health audit`:
+
+1. **Source→artifact conformance** — for the audited surface, run `/zordius-ai:source-audit`
+   Mode 1 (decompile direction) and pull in its flagged orphaned/divergent findings.
+2. **Artifact staleness** — for each artifact, compare its last-modified timestamp against the
+   source doc's (`PRINCIPLES.md` or equivalent) last-modified timestamp; flag any artifact whose
+   source predates a later source change as having unincorporated changes.
+
+Report findings in the "Conformance & Staleness" subsection below.
+
 ### 4. Generate Audit Report
 
 ```
 ## Audit Summary
-[Total files reviewed by type, issues found]
+[Total files reviewed by type, issues found; audit date: YYYY-MM-DD]
 
 ## Issues by Type
 
@@ -134,6 +146,12 @@ Report findings in the "Rule Conflicts" subsection below.
 ## Rule Conflicts (self-consistency)
 | Rule A (section) | Rule B (section) | Heuristic | Resolution |
 |------------------|------------------|-----------|------------|
+
+## Conformance & Staleness
+| Artifact | Conformance (source-audit Mode 1) | Staleness |
+|----------|-----------------------------------|-----------|
+
+*(If no orphaned/divergent findings and no stale artifacts: state "Conformant — no orphaned/divergent findings; no stale artifacts." Never leave the table empty.)*
 
 ## Required Changes
 1. {specific change}
@@ -182,9 +200,9 @@ Omit only if the change has no listed-component impact.]
 via WebFetch, or verified web search results) that is not yet in the knowledge
 baseline, list it here for the main agent to save back. Route to the appropriate
 KB tier: `knowledge/` for domain mechanics and feature concepts; `projects/` for
-ticket or work-tracking context. Execute the save via `/kb-write` (or the
-fully-qualified plugin variant). Do not let new knowledge stay only in the
-current context.]
+ticket or work-tracking context; `process/` for open-item registers surfaced
+mid-audit. Execute the save via `/kb-write` (or the fully-qualified plugin
+variant). Do not let new knowledge stay only in the current context.]
 ```
 
 ## Output Requirements
@@ -193,6 +211,6 @@ current context.]
 - Provide exact syntax examples, not vague guidelines
 - List all required fields explicitly
 - Warn about common pitfalls
-- **If new knowledge was discovered via WebFetch or verified web search**, include a "New Knowledge" section with tier routing (`knowledge/` for domain concepts; `projects/` for work-tracking context) and a `/kb-write` invocation path (see `[taxonomy] Three-tier knowledge base` in PRINCIPLES.md)
+- **If new knowledge was discovered via WebFetch or verified web search**, include a "New Knowledge" section with tier routing (`knowledge/` for domain concepts; `projects/` for work-tracking context; `process/` for open-item registers) and a `/kb-write` invocation path (see `[taxonomy] Three-tier knowledge base` in PRINCIPLES.md)
 - Every mechanics assertion (harness behavior, field defaults, tool availability, loading order) must carry `[src: KB §…]` / `[src: docs §…]` (grounded) or `[TBC: …]` (unverified). A bare assertion is a fact claim without evidence — see Fact Discipline.
 - **If audit finds no issues**: state that explicitly in Audit Summary and Required Changes — "No issues found" / "No required changes — config is clean." An empty section is indistinguishable from an incomplete run.

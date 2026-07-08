@@ -141,6 +141,7 @@ To add intermediate nodes, add the entry's slug to the `[slug]:` table in
 - [method] Measurement contract before porting
 - [method] Scoped adoption of a ported method
 - [method] Periodic re-audit of a ported method
+- [method] Signal-category routing for post-source-edit conformance checks
 - [taxonomy] Three-tier knowledge base
 - [taxonomy] Three-signal filter: agent-design-relevant source entries
 - [taxonomy] Three-band decompile: separate portable method from bindings and wiring

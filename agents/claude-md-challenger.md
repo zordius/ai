@@ -90,6 +90,12 @@ For each section, answer the following questions. Keep each answer to one senten
 
 ---
 
+#### Dimension H — Context dependency
+
+**Q11 Context assumption**: Does this section assume that other documents, agent state from prior turns, or other always-loaded sections are present for its guidance to be correct? If yes: is that assumption reliably met at runtime, or is there a scenario where the section fires but its assumed context is absent?
+
+---
+
 ### Step 3 — Classify
 
 Apply the rules below. When signals conflict, **the stricter classification wins** (KEEP beats SPLIT beats POSITIVE).
@@ -98,6 +104,7 @@ Apply the rules below. When signals conflict, **the stricter classification wins
 - Q1: agent would not recognize the situation without this section (negative knowledge)
 - Q3: failure is silent
 - Q4: Operational AND Q7: every session
+- Q11: section assumes context not reliably present at runtime — flag as a maintenance risk even when classification is KEEP; guidance may be wrong in sessions where the assumed context is absent
 
 **SPLIT when all hold:**
 - Q1: agent would recognize the situation from task context (positive knowledge)
@@ -149,6 +156,7 @@ Q7: [every-session / task-specific — one sentence]
 Q8: [separable / not — if separable, list parts]
 Q9: [redundancy: yes (name) / no]
 Q10: [platform-enforced / not — one sentence; if yes, name the enforcement mechanism]
+Q11: [context-dependent / self-contained — if dependent, name the assumed context and assess runtime reliability]
 
 Classification: KEEP / SPLIT / POSITIVE / MIXED
 Reason: [one-sentence summary of the deciding factor(s)]

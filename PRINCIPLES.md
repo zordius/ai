@@ -1062,6 +1062,16 @@ enforcement layer before running the counterfactual-absence gate — a pattern t
 fails the enforcement-layer test is not a lift candidate regardless of whether
 an existing source entry covers it.
 
+**Hook-covered gate** — distinct from `platform-fact`, and requiring its own
+detection step: before concluding a repeated pattern is undocumented, check the
+hook directory (`.hooks/` or equivalent). If a PreToolUse denial or a PostToolUse
+response-rewrite already intercepts the failure mode and provides a recovery pointer
+to the agent, the artifact documents what the hook does — tag it `hook-covered` and
+exclude it. The distinction matters for trimming: a `platform-fact` entry can be
+removed freely (structural reality doesn't depend on the prose); a `hook-covered`
+entry's prose may be trimmed, but the hook itself is load-bearing and must be
+preserved — the artifact documents an active mechanism, not a passive constraint.
+
 ### [method] Generalise before publishing to a shared source
 [derives]: source-compiled
 After extracting Band A from an artifact, strip it further before committing

@@ -139,6 +139,7 @@ Report findings in the "Rule Conflicts" subsection below.
 1. {specific change}
    **Gate** — Context: {in play?} | Probability: {near-zero / low / real} | Consequence: {advisory / meaningful / severe}
    **Verdict**: act / skip / defer — {one-sentence reason}
+   **Execute**: {fully-qualified command or skill to apply this change — search project + plugin namespace; never leave implicit}
 ```
 
 ## Standard Guidance Mode

@@ -161,6 +161,8 @@ specific change implied by the principle.
 
 ## Step 3 — Combined output and next actions
 
+**Citation format**: every artifact reference is a clickable link — `[artifact name](path)` for files, `path:line` for specific line locations. Use the full relative path from the plugin root. Bare names and bare paths are not acceptable.
+
 ```markdown
 # Source Audit: {target}
 

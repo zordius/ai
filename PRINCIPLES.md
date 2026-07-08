@@ -1295,6 +1295,27 @@ human docs — classified by what each is *for*, not by its subject. Two decidin
 questions resolve most placements: is it used *doing the work* or *maintaining
 the system*? Is it *applied as a live rule* or *read as rationale*?
 
+### [method] Signal-category routing for post-source-edit conformance checks
+[derives]: source-compiled
+After adding or modifying a source entry, determine which compiled artifact
+surfaces to check for conformance gaps by routing based on the entry's
+signal category (see "[taxonomy] Three-signal filter"):
+
+- **Agent behavior rules** → `agents/` (every agent whose job brings the
+  domain into play); also the always-loaded config if the rule is
+  session-level.
+- **Construction patterns** → `agents/` and `skills/` (any component that
+  embeds the construction logic in its steps).
+- **Source/compiled architecture rules** → the artifacts that implement the
+  source↔compiled workflow itself: `skills/source-audit/`,
+  `skills/add-principle/`, `skills/principles/` (or their equivalents).
+
+Run Mode 2 (compile direction) of the source↔compiled audit against the
+matched surfaces — checking which artifacts in scope don't yet reflect the
+new or changed entry. Applying the routing before the full sweep narrows the
+search to surfaces where a gap is plausible, avoiding false positives from
+surfaces where the entry is architecturally irrelevant.
+
 ---
 
 ## How to use this doc

@@ -90,6 +90,17 @@ Map each existing component to its intent axis and grade each axis:
 
 ### Step B4 — Frame Opportunities
 
+Before framing any opportunity, read the system's registry and index files to
+discover which docs track components of each type. Use one non-compound Bash
+call per listing:
+
+- **Agent registry** — scan for any file that lists agent names (README, `agents/README`, memory index, or equivalent)
+- **Skill registry** — equivalent for skills
+- **Command registry** — equivalent for commands
+
+These reads are the source for the "Companion Updates" field below — populate
+it from the reads, never from memory or inference.
+
 For each under-covered axis, before framing as a new build, check for existing components that could be extended instead. Apply the extend-vs-new four signals:
 1. **Shared output type** — same caller contract → extending is coherent
 2. **Shared inputs** — same inputs → extending is cheaper

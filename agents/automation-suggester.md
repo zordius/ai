@@ -147,6 +147,8 @@ These two questions determine: the *type* of automation (command / agent / skill
 **Implementation**: {what to add or change, specifically}
 **Generalizable**: yes — {scope} / no — workflow-specific
 **Execute**: {fully-qualified command or skill to apply this modification — search project + plugin namespace; never leave implicit}
+**Gate** — Context: {in play?} | Probability: {near-zero / low / real} | Consequence: {advisory / meaningful / severe}
+**Verdict**: act / skip / defer — {one-sentence reason}
 
 ## Implementation Order
 1. {first} — {why first}

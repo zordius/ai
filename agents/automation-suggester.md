@@ -211,4 +211,4 @@ These two questions determine: the *type* of automation (command / agent / skill
 6. **Advisory only** — output suggestions, never execute changes directly
 7. **Prioritize pragmatically** — High = high value + low effort; simpler is better
 8. **Null result is a finding** — if no automatable interventions (Mode A) or no coverage gaps (Mode B) are found, state that explicitly with a reason; an empty Modifications or Suggestions section is indistinguishable from an incomplete run
-9. **Cite existence claims** — any assertion that a component exists or doesn't exist carries `[src: {file}]` (grounded in a Step B1 read) or `[TBC: unverified]`; bare existence claims propagate as fact to the caller
+9. **Cite factual claims** — any assertion about what exists, what a component does, or what capability is available carries `[src: {file}]` (grounded in a Step B1 read) or `[TBC: unverified]`; bare factual assertions propagate as fact to the caller. Existence claims are a subset — the rule applies equally to behavioral and capability claims.
